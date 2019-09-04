@@ -1,13 +1,13 @@
-import clientsReducer from './reducers/clients'
+import clientReducer from './reducers/clientReducer'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import booking from './reducers/booking';
-import currentUser from './reducers/currentUser'
+import bookingReducer from './reducers/bookingReducer';
+import currentUserReducer from './reducers/currentUserReducer'
 
 const reducer = combineReducers({
-    clients: clientsReducer,
-    booking,
-    currentUser
+    clients: clientReducer,
+    bookings: bookingReducer,
+    currentUser: currentUserReducer
 
 })
 
