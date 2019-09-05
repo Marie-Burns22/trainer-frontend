@@ -10,14 +10,15 @@ export const setCurrentUser = user => {
 
 // asynchronous action creators
 
-export const login = credentials => {
+export const login = loginData => {
+    console.log("loginData is:", loginData)
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/login"), {
+        return fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({email: })
-        }
+            body: JSON.stringify({email: loginData.email, password: loginData.password })
+        })
     }
 }

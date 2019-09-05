@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updateLoginForm } from '../actions/loginFormAction'
+import { login } from '../actions/currentUserAction'
 
 class LoginForm extends Component {
 
@@ -19,7 +19,7 @@ class LoginForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault()
         const loginData = this.state;
-        this.props.updateLoginForm(loginData)
+        this.props.login(loginData)
         this.setState({
             email: '',
             password: ''
@@ -39,5 +39,4 @@ class LoginForm extends Component {
     }
 }
 
-export default connect(null, { updateLoginForm })(LoginForm)
-// export default LoginForm
+export default connect(null, { login })(LoginForm)
