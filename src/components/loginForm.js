@@ -1,32 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginFormAction'
-// const handleOnSubmit = () => {
-//     console.log("In handleOnSubmit")
-//     return "Submitted"
-// }
-// const handleChange = () => {
-//     console.log("In handleChange")
-//     return "Changed"
-// }
 
+class LoginForm extends Component {
 
+    state = {
+        email: '',
+        password: ''
+    };
 
-const Login = ({ email, password }) => {
-    return (
-        <form>
-            <input value={email} type="text" name="email" />
-            <input value={password} type="text" name="password" />
+    handleOnChange = event => {
 
-        </form>
-    )
-}
-//this function gives an argument to this component that is an object
-const mapStateToProps = state => {
-    return {
-        email: state.loginForm.email,
-        password: state.loginForm.password
+        this.setState({ 
+            [event.target.name]: event.target.value 
+        })
+    }
+
+    handleOnSubmit = event => {
+        event.preventDefault()
+        const loginData = this.state;
+        this.props.updateLoginForm(loginData)
+        this.setState({
+            email: '',
+            password: ''
+        })
+    }
+
+    render() {
+        return (
+        <div className='container'>
+            <form onSubmit={this.handleOnSubmit}>
+                <input value={this.state.email} type="text" name="email" onChange={this.handleOnChange} />
+                <input value={this.state.password} type="text" name="password" onChange={this.handleOnChange} />
+                <button type="submit" className="btn bth-default btn-info">Login</button>
+            </form>
+        </div>
+        )
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm })(Login)
+export default connect(null, { updateLoginForm })(LoginForm)
+// export default LoginForm
