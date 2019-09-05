@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import Login from './components/loginForm';
 // import {connect} from 'react-redux'
+
 
 class App extends React.Component {
 
@@ -16,6 +18,7 @@ class App extends React.Component {
           <p>
             Welcome to Marie's Personal Trainer App
           </p>
+          <Login />
         
       </div>
     );
