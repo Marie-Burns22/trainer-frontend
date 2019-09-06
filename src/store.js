@@ -10,7 +10,6 @@ const reducer = combineReducers({
     clients: clientReducer,
     currentUser: currentUserReducer,
     services: serviceReducer
-
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
