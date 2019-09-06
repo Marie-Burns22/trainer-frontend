@@ -8,7 +8,7 @@ import fetchServices from '../actions/serviceActions'
 class ServicesContainer extends React.Component {
    
     componentDidMount() {
-        this.props.fetchSercies()
+        this.props.fetchServices()
     }
    
    
