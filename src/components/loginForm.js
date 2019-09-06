@@ -18,13 +18,28 @@ class LoginForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        const loginData = this.state;
-        this.props.login(loginData)
+        const credentials = this.state;
+        this.props.login(credentials)
         this.setState({
             email: '',
             password: ''
         })
     }
+// TODO fix logout after login works
+    // logout = event => {
+    //     event.preventDefault()
+    // //     fetch("http:localhost:3000/api/v1/logout",
+    //             credentials: "include"
+                // method: "DELETE",
+    //             headers: {
+    //                 
+    //                 "Content-Type": "application/json"
+    //             }        
+                // }  )
+    //     this.setState({
+        
+    //     })
+    // }
 
     render() {
         return (

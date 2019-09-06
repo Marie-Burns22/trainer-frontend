@@ -3,22 +3,26 @@
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
-        user
+        payload: user
     }
 }
 
 
 // asynchronous action creators
 
-export const login = loginData => {
-    console.log("loginData is:", loginData)
+export const login = credentials => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({email: loginData.email, password: loginData.password })
+            body: JSON.stringify( {
+                client: credentials
+            })
         })
+        .then(r => r.json())
+        .then(console.log)
+        .catch()
     }
 }
