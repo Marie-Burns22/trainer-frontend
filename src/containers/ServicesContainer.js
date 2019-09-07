@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import ServiceInput from '../components/serviceComponents/ServiceInput';
 import Services from '../components/serviceComponents/Services'
-import fetchServices from '../actions/serviceActions'
+import {fetchServices} from '../actions/serviceActions'
 
 class ServicesContainer extends React.Component {
    
@@ -17,7 +17,7 @@ class ServicesContainer extends React.Component {
             <div>
                 ServicesContainer
                 <ServiceInput />
-                <Services />
+                <Services services={this.props.services}/>
 
             </div>
         )

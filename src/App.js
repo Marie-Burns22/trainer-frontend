@@ -8,11 +8,11 @@ import ClientsContainer from './containers/ClientsContainer';
 class App extends React.Component {
 
   // TODO change component did mount to populate redux store. Set up react routes here or in children.
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/clients/1')
-      .then(resp => resp.json())
-      .then(data => console.log(data))
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/api/v1/clients')
+  //     .then(resp => resp.json())
+  //     .then(data => console.log(data))
+  // }
   
   render () {
     return (
