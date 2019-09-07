@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from "react-redux";
+
 import Bookings from '../components/bookingComponents/Bookings';
+import {fetchBookings} from '../actions/bookingActions'
 
 class BookingsContainer extends React.Component {
 
-    // Add componentDidMount after fetchBookings is built in action and reducer
+    componentDidMount() {
+        this.props.fetchBookings()
+    }
 
     render() {
         return (
             <div className="Bookings">
                 BookingsContainer
-                <Bookings />
+                <Bookings bookings={this.props.bookings}/>
             </div>
         );
     }
@@ -22,5 +26,5 @@ const mapStateToProps = state => {
         bookings: state.bookings
     }
 }
-// TODO add action to connect after it is built in action and reducer
-export default connect(mapStateToProps)(BookingsContainer)
+
+export default connect(mapStateToProps, {fetchBookings})(BookingsContainer)

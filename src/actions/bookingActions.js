@@ -12,7 +12,7 @@ export const fetchBookings = () => {
         return fetch("http:localhost:3000/api/v1/bookings", {
             method: 'GET',
             headers: {
-                "Content-Type": "applicatin/json"
+                "Content-Type": "application/json"
             },
         })
             .then(r => r.json())
