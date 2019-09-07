@@ -3,8 +3,8 @@ import React from 'react';
 const Service = (props) => {
     return(
         <div>
-            Service Functional Component
-            <p>{props.service.attributes.name}</p>
+            <h3>Service Functional Component</h3>
+            <p>The service name is: {props.service.attributes.name}</p>
 
         </div>
     )

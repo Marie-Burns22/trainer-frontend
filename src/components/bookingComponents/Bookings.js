@@ -1,11 +1,11 @@
 import React from 'react';
-
+import Booking from './Booking';
 
 const Bookings = (props) => {
     return(
         <div>
             <h3>Bookings Functional Component</h3>
-            {props.bookings.map(booking => <li> {booking.attributes.day}</li>)}
+            {props.bookings.map(booking => <li> {booking.attributes.day} <Booking booking={booking}/></li>)}
         </div>
     )
 }

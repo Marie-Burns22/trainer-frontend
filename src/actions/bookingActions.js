@@ -17,12 +17,12 @@ export const fetchBookings = () => {
         })
             .then(r => r.json())
             .then(response => {
-                if (response.error) {
-                    alert(response.error)
-                } else {
+                // if (response.error) {
+                //     alert(response.error)
+                // } else {
                     console.log(response.data)
                     dispatch(setBookings(response.data))
-                }
+                // }
             })
             .catch(console.log)
     }
