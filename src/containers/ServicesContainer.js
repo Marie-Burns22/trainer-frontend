@@ -11,14 +11,12 @@ class ServicesContainer extends React.Component {
         this.props.fetchServices()
     }
    
-   
     render() {
         return(
             <div>
                 ServicesContainer
                 <ServiceInput />
                 <Services services={this.props.services}/>
-
             </div>
         )
     }
