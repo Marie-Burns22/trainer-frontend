@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import ServiceForm from '../components/serviceComponents/ServiceForm';
 import Services from '../components/serviceComponents/Services'
 import {fetchServices} from '../actions/serviceActions'
+import {addService} from '../actions/serviceActions'
+
 
 class ServicesContainer extends React.Component {
    
@@ -15,7 +17,7 @@ class ServicesContainer extends React.Component {
         return(
             <div>
                 ServicesContainer
-                <ServiceForm />
+                <ServiceForm addService={this.props.addService}/>
                 <Services services={this.props.services}/>
             </div>
         );
@@ -28,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchServices})(ServicesContainer)
+export default connect(mapStateToProps, {fetchServices, addService})(ServicesContainer)

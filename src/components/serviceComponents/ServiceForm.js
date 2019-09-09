@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { addService } from '.../actions/serviceActions'
 
 class ServiceForm extends React.Component {
 
@@ -46,4 +44,4 @@ class ServiceForm extends React.Component {
     }
 }
 
-export default connect(null, { addService})(ServiceForm)
+export default ServiceForm
