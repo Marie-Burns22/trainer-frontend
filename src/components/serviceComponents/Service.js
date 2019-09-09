@@ -5,7 +5,6 @@ const Service = (props) => {
         <div>
             <h3>Service Functional Component</h3>
             <p>The service name is: {props.service.attributes.name}</p>
-
         </div>
     )
 }

@@ -9,7 +9,7 @@ export const setBookings = bookings => {
 // async actions
 export const fetchBookings = () => {
     return dispatch => {
-        return fetch("http:localhost:3000/api/v1/bookings", {
+        return fetch("http://localhost:3000/api/v1/bookings", {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -17,12 +17,13 @@ export const fetchBookings = () => {
         })
             .then(r => r.json())
             .then(response => {
-                // if (response.error) {
-                //     alert(response.error)
-                // } else {
-                    console.log(response.data)
+                if (response.error) {
+                    alert(response.error)
+                } else {
+                    // console shows fetch request is successful but 
+                    console.log("the booking response data is:", response.data) 
                     dispatch(setBookings(response.data))
-                // }
+                }
             })
             .catch(console.log)
     }
