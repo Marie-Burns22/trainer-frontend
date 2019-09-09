@@ -16,12 +16,12 @@ class ServiceForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addService(this.state)
-        // this.setState({
-        //     name: '',
-        //     category: '',
-        //     price: '',
-        //     request_method: ''
-        // })
+        this.setState({
+            name: '',
+            category: '',
+            price: '',
+            request_method: ''
+        })
     }
     render() {
         return (

@@ -20,11 +20,8 @@ export const fetchBookings = () => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    // console shows fetch request is successful but 
-                    // console.log("the booking response data is:", response.data) 
                     dispatch(setBookings(response.data))
                 }
             })
-            // .catch(console.log)
     }
 }
