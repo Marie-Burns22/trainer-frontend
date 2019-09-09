@@ -21,11 +21,9 @@ export const fetchServices = () => {
                 if (response.error) {
                     alert(response.error)
                  } else {
-                    //  console.log(response.data)
                     dispatch(setServices(response.data))
                 }
             })      
-            // .catch(console.log)
     }
 }
 

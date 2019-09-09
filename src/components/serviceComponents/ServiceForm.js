@@ -6,7 +6,7 @@ class ServiceForm extends React.Component {
         name: '',
         category: '',
         price: '',
-        requestMethod: ''
+        request_method: ''
     }
 
     handleChange = (event) => {
@@ -16,12 +16,12 @@ class ServiceForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addService(this.state)
-        this.setState({
-            name: '',
-            category: '',
-            price: '',
-            requestMethod: ''
-        })
+        // this.setState({
+        //     name: '',
+        //     category: '',
+        //     price: '',
+        //     request_method: ''
+        // })
     }
     render() {
         return (
@@ -35,7 +35,7 @@ class ServiceForm extends React.Component {
                     <label>Service Price</label>
                     <input type='text' name="price" placeholder="Price" value={this.state.price} onChange={this.handleChange}/>
                     <label>Service Request Method</label>
-                    <input type='text' name="requestMethod" placeholder="Request Method" value={this.state.requestMethod} onChange={this.handleChange}/>
+                    <input type='text' name="request_method" placeholder="Request Method" value={this.state.request_method} onChange={this.handleChange}/>
                     <input type='submit' />
                 </form>
                 

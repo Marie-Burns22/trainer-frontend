@@ -4,8 +4,7 @@ import Service from './Service';
 const Services = (props) => {
     return(
         <div>
-            Services Function Component
-            {props.services.map(service => <li key={service.id}> {service.attributes.category}<Service service={service}/>  </li>)}
+            {props.services.map(service => <li key={service.id}> {service.attributes.name}<Service service={service}/>  </li>)}
 
 
         </div>
