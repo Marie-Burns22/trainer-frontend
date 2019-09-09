@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { addService } from '.../actions/serviceActions'
 
 class ServiceForm extends React.Component {
 
@@ -14,7 +16,14 @@ class ServiceForm extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault
+        event.preventDefault()
+        this.props.addService(this.state)
+        this.setState({
+            name: '',
+            category: '',
+            price: '',
+            requestMethod: ''
+        })
     }
     render() {
         return (
@@ -37,4 +46,4 @@ class ServiceForm extends React.Component {
     }
 }
 
-export default ServiceForm
+export default connect(null, { addService})(ServiceForm)
