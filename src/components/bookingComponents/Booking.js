@@ -3,8 +3,8 @@ import React from 'react';
 const Booking = (props) => {
     return(
         <div>
-            <h3> Booking Functional Component</h3>
-            <p>The booking day is: {props.booking.attributes.day}</p>
+            <h3> Your Booking for:  Name of Service will go here</h3>
+            <p> Is on: {props.booking.attributes.day} at {props.booking.attributes.time}</p>
         </div>
     )
 }

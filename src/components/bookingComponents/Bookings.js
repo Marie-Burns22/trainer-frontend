@@ -1,13 +1,15 @@
-import React from 'react';
-import Booking from './Booking';
+// This component may not be necessary.  Do not need a list of all bookings. Just need access to bookings by client.
 
-const Bookings = (props) => {
-    return(
-        <div>
-            <h3>Bookings</h3>
-            {props.bookings.map(booking => <li key={booking.id}> {booking.attributes.day} <Booking booking={booking}/></li>)}
-        </div>
-    )
-}
+// import React from 'react';
+// import Booking from './Booking';
 
-export default Bookings
+// const Bookings = (props) => {
+//     return(
+//         <div>
+//             <h3>Bookings</h3>
+//             {props.bookings.map(booking => <li key={booking.id}> {booking.attributes.day} <Booking booking={booking}/></li>)}
+//         </div>
+//     )
+// }
+
+// export default Bookings
