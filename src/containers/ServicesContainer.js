@@ -4,10 +4,9 @@ import {Route, Switch, NavLink} from 'react-router-dom';
 
 import ServiceForm from '../components/serviceComponents/ServiceForm';
 import Services from '../components/serviceComponents/Services'
+import Service from '../components/serviceComponents/Service'
 import {fetchServices} from '../actions/serviceActions'
 import {addService} from '../actions/serviceActions'
-import Service from '../components/serviceComponents/Service'
-
 
 class ServicesContainer extends React.Component {
    
