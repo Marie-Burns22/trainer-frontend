@@ -9,7 +9,7 @@ const Services = (props) => {
             {props.services.map(service => 
             <li key={service.id}> 
                 <Link to={`/services/${service.id}`}>{service.attributes.name}</Link>  
-                <Route path='/services/:id' render={() => <Service service={service} />} /> 
+                {/* <Route path='/services/:id' render={() => <Service service={service} />} />  */}
             </li>)}
            
         </div>

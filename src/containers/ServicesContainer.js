@@ -22,8 +22,8 @@ class ServicesContainer extends React.Component {
                 <Switch>
                     <Route exact path='/services' render={routerprops => <Services {...routerprops} services={this.props.services}/> } />
                     <Route exact path='/services/new' render={() => <ServiceForm addService={this.props.addService}/> } />
-                    {/* <Route path='/services/:id' component={Service} /> */}
-                    <Route path='/services/:id' render={ ({ match }) => ( <Service service={this.props.services.find(s => s.id === match.params.id )} /> ) } />
+                    {/* <Route path='/services/:id' render={ ({ match }) => ( <Service service={this.props.services.find(s => s.id === match.params.id )} /> ) } /> */}
+                    <Route path='/services/:id' render={routerprops => <Service services={this.props.services} {...routerprops} />} />
                 </Switch>   
 
 
