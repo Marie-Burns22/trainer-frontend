@@ -1,6 +1,6 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom'
-import Service from './Service';
+import {Link} from 'react-router-dom'
+
 
 const Services = (props) => {
     return(
@@ -10,7 +10,7 @@ const Services = (props) => {
             {props.services.map(service => 
             <li key={service.id}> 
                 <Link to={`/services/${service.id}`}>{service.attributes.name}</Link>  
-                {/* <Route path='/services/:id' render={() => <Service service={service} />} />  */}
+
             </li>)}
            
         </div>
