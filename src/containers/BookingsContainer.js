@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import Bookings from '../components/bookingComponents/Bookings';
 import {fetchBookings} from '../actions/bookingActions'
+import BookingForm from '../components/bookingComponents/BookingForm'
 
 class BookingsContainer extends React.Component {
 
@@ -15,6 +16,7 @@ class BookingsContainer extends React.Component {
             <div className="Bookings">
                 BookingsContainer
                 <Bookings bookings={this.props.bookings}/>
+                <BookingForm />
             </div>
         );
     }

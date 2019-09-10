@@ -8,8 +8,8 @@ class BookingForm extends React.Component {
         service: ''
     }
 
-    handleChange = ({target: name, value}) => {
-        this.setState({ name: value})
+    handleChange = ({target: {name, value}}) => {
+        this.setState({ [name]: value})
     }
 
     handleSubmit = (event) => {
@@ -42,3 +42,5 @@ class BookingForm extends React.Component {
         )
     }
 }
+
+export default BookingForm
