@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Route, Switch, NavLink} from 'react-router-dom';
 
-import ServiceForm from '../components/serviceComponents/ServiceForm';
-import Services from '../components/serviceComponents/Services'
-import Service from '../components/serviceComponents/Service'
+import ServiceForm from '../serviceComponents/ServiceForm';
+import Services from '../serviceComponents/Services'
+import Service from '../serviceComponents/Service'
 import {fetchServices} from '../actions/serviceActions'
 import {addService} from '../actions/serviceActions'
 
@@ -19,6 +19,7 @@ class ServicesContainer extends React.Component {
             <div className="ServicesContainer">
                 <div className="navBar">
                     <NavLink to="/services">All Services</NavLink>;
+                    <NavLink to="/services/new">New Service Form</NavLink>
                 </div>
                 <Switch>
                     <Route exact path='/services' render={routerprops => <Services {...routerprops} services={this.props.services}/> } />

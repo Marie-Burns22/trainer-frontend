@@ -9,7 +9,7 @@ export const setServices = services => {
 // async actions
 export const fetchServices = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/services", {
+        fetch("http://localhost:3000/api/v1/services", {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -28,7 +28,7 @@ export const fetchServices = () => {
 
 export const addService = (data) => {
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/services", {
+       return fetch("http://localhost:3000/api/v1/services", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

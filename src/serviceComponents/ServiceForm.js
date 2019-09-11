@@ -40,6 +40,7 @@ class ServiceForm extends React.Component {
                     <label>Service Price</label>
                     <input type='text' name="price" placeholder="Price" value={this.state.price} onChange={this.handleChange}/>
                     
+                    <input type="submit" value="Create New Service"/>
                 </form>
                 
             </div>

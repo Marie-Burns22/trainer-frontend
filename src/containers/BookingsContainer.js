@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import {Route, Switch, NavLink} from 'react-router-dom';
 
 import BookingForm from '../bookingComponents/BookingForm'
-// import Bookings from '../components/bookingComponents/Bookings';
-// import Booking from '../components/bookingComponents/Booking'
+// import Bookings from '../bookingComponents/Bookings';
+// import Booking from '../bookingComponents/Booking'
 import {fetchBookings} from '../actions/bookingActions'
 import {addBooking} from '../actions/bookingActions'
 
