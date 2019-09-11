@@ -8,7 +8,7 @@ import serviceReducer from './reducers/serviceReducer'
 const reducer = combineReducers({
     bookings: bookingReducer,
     clients: clientReducer,
-    currentUser: currentUserReducer,
+    currentClient: currentClientReducer,
     services: serviceReducer
 })
 

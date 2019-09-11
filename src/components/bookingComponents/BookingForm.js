@@ -16,10 +16,10 @@ class BookingForm extends React.Component {
         event.preventDefault()
         this.props.addBooking(this.state)
         this.setState({
-            day: '',
-            time: '',
-            client: '',
-            service: ''
+            day: 'Monday',
+            time: '11:00',
+            client: '1',
+            service: '1'
         })
     }
     render() {
@@ -48,7 +48,7 @@ class BookingForm extends React.Component {
                     
                     {/* TODO: service options mapped from an array of services */}
                     <label>Service</label>
-                    <select name='service' placeholder="service" value={this.state.service}>
+                    <select name='service' placeholder="service" value={this.state.service} onChange={this.handleChange}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
