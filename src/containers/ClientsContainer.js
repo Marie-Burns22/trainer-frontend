@@ -1,4 +1,6 @@
 import React from 'react';
+import LoginForm from '../clientComponents/LoginForm';
+
 
 
 
@@ -9,6 +11,7 @@ class ClientsContainer extends React.Component {
         return(
             <div>
                 ClientsContainer
+                <LoginForm />
 
             </div>
 
@@ -18,3 +21,4 @@ class ClientsContainer extends React.Component {
 }
 
 export default ClientsContainer
+

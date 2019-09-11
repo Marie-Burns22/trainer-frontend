@@ -2,14 +2,16 @@ import clientReducer from './reducers/clientReducer'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import bookingReducer from './reducers/bookingReducer';
-import currentUserReducer from './reducers/currentUserReducer'
+import currentClientReducer from './reducers/currentClientReducer'
 import serviceReducer from './reducers/serviceReducer'
+import loginFormReducer from './reducers/loginFormReducer'
 
 const reducer = combineReducers({
     bookings: bookingReducer,
     clients: clientReducer,
     currentClient: currentClientReducer,
-    services: serviceReducer
+    services: serviceReducer,
+    loginForm: loginFormReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

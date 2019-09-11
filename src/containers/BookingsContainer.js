@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import {Route, Switch, NavLink} from 'react-router-dom';
 
-import BookingForm from '../components/bookingComponents/BookingForm'
+import BookingForm from '../bookingComponents/BookingForm'
 // import Bookings from '../components/bookingComponents/Bookings';
 // import Booking from '../components/bookingComponents/Booking'
 import {fetchBookings} from '../actions/bookingActions'
