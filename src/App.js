@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
 
+import {connect} from 'react-redux'
+import {getCurrentClient} from './actions/currentClientAction'
+
 import BookingsContainer from './containers/BookingsContainer';
 import ServicesContainer from './containers/ServicesContainer';
 import ClientsContainer from './containers/ClientsContainer';
 
 class App extends React.Component {
 
-  // TODO change component did mount to populate redux store. Set up react routes here or in children.
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/api/v1/clients')
-  //     .then(resp => resp.json())
-  //     .then(data => console.log(data))
-  // }
+
+  componentDidMount() {
+    this.props.getCurrentClient()
+  }
   
   render () {
     return (
@@ -29,6 +30,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(null, {getCurrentClient})(App);
 
 

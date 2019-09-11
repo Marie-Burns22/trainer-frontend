@@ -27,7 +27,7 @@ class BookingForm extends React.Component {
             <div className="container">
                 <h3>New Booking Form</h3>
                 <form onSubmit={this.handleSubmit}>
-                    {/* TODO: Use current user instead of input field. Pass in the props with the client id and remove the client input field */}
+                    {/* TODO: Use current client instead of input field. Pass in the props with the client id and remove the client input field */}
                     <label>Client Name</label>
                     <input type="text" name='client' placeholder="client name" value={this.state.client} onChange={this.handleChange}/>
                     
