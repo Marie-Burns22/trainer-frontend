@@ -18,10 +18,10 @@ class App extends React.Component {
   
   render () {
     return (
-      <div className="App">
-          <p>
-            Welcome to Marie's Personal Trainer App
-          </p>
+      <div className="container">
+          <h1>
+            Welcome to Vegas in Miami Personal Training
+          </h1>
           <ClientsContainer />
           <ServicesContainer />
           <BookingsContainer />

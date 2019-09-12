@@ -10,9 +10,11 @@ import {addBooking} from '../actions/bookingActions'
 
 class BookingsContainer extends React.Component {
 
-    componentDidMount() {
-        this.props.fetchBookings()
-    }
+    // componentDidMount commented out to avoid automatic alert everytime page loads.
+    // TODO: fetchBookings only when asked for by currentclient clicking on a button to see all their bookings
+    // componentDidMount() {
+    //     this.props.fetchBookings()
+    // }
 
     render() {
         return (
