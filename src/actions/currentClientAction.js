@@ -6,6 +6,12 @@ export const setCurrentClient = client => {
     }
 }
 
+export const clearCurrentClient = () => {
+    return {
+        type: "CLEAR_CURRENT_CLIENT"
+    }
+}
+
 // asynchronous action creators
 export const login = credentials => {
     console.log("credentials are:", credentials)
@@ -28,6 +34,16 @@ export const login = credentials => {
             }
         })
         .catch(console.log)
+    }
+}
+
+export const logout = () => {
+    return dispatch => {
+        dispatch(clearCurrentClient())
+        return fetch('http://localhost:3000/api/v1/logout', {
+            credentials: "include",
+            method: "DELETE"
+        })
     }
 }
 

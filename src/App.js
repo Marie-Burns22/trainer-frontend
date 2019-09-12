@@ -8,6 +8,7 @@ import BookingsContainer from './containers/BookingsContainer';
 import ServicesContainer from './containers/ServicesContainer';
 import ClientsContainer from './containers/ClientsContainer';
 
+
 class App extends React.Component {
 
 
@@ -24,6 +25,7 @@ class App extends React.Component {
           <ClientsContainer />
           <ServicesContainer />
           <BookingsContainer />
+
         
       </div>
     );
