@@ -12,6 +12,7 @@ import Home from './navComponents/Home'
 import { Route, Switch } from 'react-router-dom';
 
 import LoginForm from './clientComponents/LoginForm';
+import SignupForm from './clientComponents/SignupForm';
 
 
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
           <Switch>
 
             <Route exact path='/login' component={LoginForm}/>
+            <Route exact path='/signup' component={SignupForm}/>
           </Switch>
       </div>
     );
