@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {updateSignupForm} from "../actions/signupActions.js"
-// import signupReducer from '../reducers/signupReducer.js';
+
 
 
 const SignupForm = ({ updateSignupForm, signup, signupFormData }) => {
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {updateSignupForm})(SignupForm)
+export default connect(mapStateToProps, {updateSignupForm, signUp, })(SignupForm)
