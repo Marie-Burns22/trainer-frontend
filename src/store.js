@@ -5,7 +5,7 @@ import bookingReducer from './reducers/bookingReducer';
 import currentClientReducer from './reducers/currentClientReducer'
 import serviceReducer from './reducers/serviceReducer'
 import loginFormReducer from './reducers/loginFormReducer'
-import signupReducer from './reducers/signupReducer';
+import signUpReducer from './reducers/signUpReducer';
 
 const reducer = combineReducers({
     bookings: bookingReducer,
@@ -13,7 +13,7 @@ const reducer = combineReducers({
     currentClient: currentClientReducer,
     services: serviceReducer,
     loginForm: loginFormReducer,
-    signupForm: signupReducer
+    signUpForm: signUpReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

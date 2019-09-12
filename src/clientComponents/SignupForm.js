@@ -1,34 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {updateSignupForm} from "../actions/signupActions.js"
+import {updateSignUpForm} from "../actions/signUpActions.js"
+import {signUp} from '../actions/signUpActions'
 
 
 
-const SignupForm = ({ updateSignupForm, signup, signupFormData }) => {
+const SignUpForm = ({ updateSignUpForm, signUp, signUpFormData }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
         const updatedFormInfo = {
-            ...signupFormData,
+            ...signUpFormData,
             [name]: value
         }
-        updateSignupForm(updatedFormInfo)
+        updateSignUpForm(updatedFormInfo)
     }
 
     const handleSubmit = event => {
         event.preventDefault()
-        signup(signupFormData)
+        signUp(signUpFormData)
     }
 
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
             <label>Name</label>
-            <input type="text" placeholder="Name" name="name" onChange={handleChange} value={signupFormData.name}/>
+            <input type="text" placeholder="Name" name="name" onChange={handleChange} value={signUpFormData.name}/>
             <label>Email</label>
-            <input type="text" placeholder="Email" name="email" onChange={handleChange} value={signupFormData.email} />
+            <input type="text" placeholder="Email" name="email" onChange={handleChange} value={signUpFormData.email} />
             <label>Password</label>
-            <input type="password" placeholder="Password" name="password" onChange={handleChange} value={signupFormData.password} />
+            <input type="password" placeholder="Password" name="password" onChange={handleChange} value={signUpFormData.password} />
             <input type="submit" value="Sign Up" />
             </form>
         </div>
@@ -38,8 +39,8 @@ const SignupForm = ({ updateSignupForm, signup, signupFormData }) => {
 
 const mapStateToProps = state => {
     return {
-        signupFormData: state.signupForm
+        signUpFormData: state.signUpForm
     }
 }
 
-export default connect(mapStateToProps, {updateSignupForm, signUp, })(SignupForm)
+export default connect(mapStateToProps, {updateSignUpForm, signUp})(SignUpForm)
