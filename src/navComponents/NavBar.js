@@ -5,7 +5,7 @@ import LoginForm from '../clientComponents/LoginForm'
 
 const NavBar = ({currentClient}) => {
     return (
-        <div className="NavBar">
+        <div className="NavBar container">
             {currentClient ? <p>Welcome, {currentClient.attributes.name}</p> : <p>Please Login or Signup</p>}
             {currentClient ? <Logout /> : <LoginForm />}
         </div>
