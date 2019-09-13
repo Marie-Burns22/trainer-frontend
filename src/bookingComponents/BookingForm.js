@@ -1,12 +1,17 @@
 import React from 'react';
+import {connect} from "react-redux"
+import {addBooking} from "../actions/bookingActions"
 
 class BookingForm extends React.Component {
-    state = {
-        day: 'Monday',
-        time: '11:00',
-        client: '1',
-        service: '1'
-    }
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            day: 'Monday',
+            time: '11:00',
+            service_id: '1'
+        }
+}
 
     handleChange = ({target: {name, value}}) => {
         this.setState({ [name]: value})
@@ -14,12 +19,11 @@ class BookingForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addBooking(this.state)
+        this.props.addBooking(this.state, this.props.currentClient.id)
         this.setState({
             day: 'Monday',
             time: '11:00',
-            client: '1',
-            service: '1'
+            service_id: '1'
         })
     }
     render() {
@@ -27,9 +31,6 @@ class BookingForm extends React.Component {
             <div className="container">
                 <h3>New Booking Form</h3>
                 <form onSubmit={this.handleSubmit}>
-                    {/* TODO: Use current client instead of input field. Pass in the props with the client id and remove the client input field */}
-                    <label>Client Name</label>
-                    <input type="text" name='client' placeholder="client name" value={this.state.client} onChange={this.handleChange}/>
                     
                     <label>Day</label>
                     <select name='day' placeholder="day" value={this.state.day} onChange={this.handleChange}>
@@ -61,4 +62,10 @@ class BookingForm extends React.Component {
     }
 }
 
-export default BookingForm
+const mapStateToProps = state => {
+    return {
+        currentClient: state.currentClient
+    }
+}
+
+export default connect(mapStateToProps, {addBooking})(BookingForm)

@@ -13,6 +13,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
+import BookingForm from './bookingComponents/BookingForm'
+import Bookings from './bookingComponents/Bookings'
 
 
 class App extends React.Component {
@@ -33,9 +35,10 @@ class App extends React.Component {
           {/* <ServicesContainer /> */}
           {/* <BookingsContainer /> */}
           <Switch>
-
             <Route exact path='/login' component={LoginForm}/>
             <Route exact path='/signup' component={SignUpForm}/>
+            <Route exact path='/bookings' render={routerprops => <Bookings {...routerprops} bookings={this.props.bookings} />} />
+            <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
           </Switch>
       </div>
     );
