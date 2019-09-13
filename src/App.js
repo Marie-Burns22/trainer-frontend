@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import {getCurrentClient} from './actions/currentClientAction'
 import {fetchServices} from './actions/serviceActions'
 
-import NavBar from './navComponents/NavBar';
-import Jumbotron from './navComponents/Jumbotron'
+// import NavBar from './navComponents/NavBar';
+// import Jumbotron from './navComponents/PhotoHeading'
 import Home from './navComponents/Home'
 
 import Client from './clientComponents/Client'
@@ -41,9 +41,9 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
-          <NavBar />
-          <Jumbotron />
-          <Home />
+          {/* <NavBar /> */}
+          {/* <Jumbotron /> */}
+          <Route exact path='/' component={Home}/>
           {this.props.currentClient ? <Client />: null}
 
           <Route exact path='/login' component={LoginForm}/>

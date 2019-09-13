@@ -13,18 +13,19 @@ import styled from 'styled-components';
 
 const NavBar = ({currentClient}) => {
     const Styles = styled.div`
-    .navbar {
-        background-color: #323;
-    }
-
-    .navbar-brand, .navbar-nav .nav-link {
-        color: #abc;
-
-        &:hover {
-            color: white;
+        .navbar {
+            background-color: #323;
         }
-    }
-`;
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #abc;
+
+            &:hover {
+                color: white;
+            }
+        }
+    `;
+
     return (
         <Styles>
             <Navbar expand="lg">
@@ -32,6 +33,7 @@ const NavBar = ({currentClient}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
+                        <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                         {currentClient ?
                         <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
                         :

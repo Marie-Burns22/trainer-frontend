@@ -3,9 +3,8 @@ import React from 'react'
 const Home = () => {
     return (
     <div className="container">
-        <h1>
-           This is the Home page.
-        </h1>
+        <h1>Welcome</h1>
+            <p>The Famous Ms. Vegas Seasoned poleformer and award-winning competitive dancer offering online stretch and pole privates and in-person lessons and training packages in the South Florida Area.</p>
     </div>
     
     )
