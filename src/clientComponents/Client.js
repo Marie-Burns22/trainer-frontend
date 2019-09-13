@@ -1,16 +1,28 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Client = () => {
+const Client = (props) => {
     return (
         <div className="container">
-        
-            <NavLink to="/bookings">All My Bookings</NavLink> */}
+            {props.currentClient ?
+            <div>
+                <h2>Welcome, {props.currentClient.attributes.name}</h2>
+                <NavLink to="/bookings">All My Bookings</NavLink> 
+            </div>
+                : null
+            }  
         </div>
     )
 }
 
-export default Client
+const mapStateToProps = state => {
+    return {
+        currentClient: state.currentClient
+    }
+}
+
+export default connect(mapStateToProps)(Client)
 
 // This component should render when a client is logged in
 // Display logout button

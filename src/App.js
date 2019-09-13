@@ -10,8 +10,11 @@ import {fetchServices} from './actions/serviceActions'
 import Home from './navComponents/Home'
 import NavBar from './navComponents/NavBar';
 
+import Client from './clientComponents/Client'
+
 import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
+import Logout from './clientComponents/Logout';
 
 import Bookings from './bookingComponents/Bookings'
 import BookingForm from './bookingComponents/BookingForm'
@@ -39,9 +42,11 @@ class App extends React.Component {
       <div className="container">
           <Home />
           <NavBar />
+          {this.props.currentClient ? <Client />: null}
 
           <Route exact path='/login' component={LoginForm}/>
           <Route exact path='/signup' component={SignUpForm}/>
+          <Route exact path='/logout' component={Logout}/>
           
           <Route exact path='/bookings' render={routerprops => <Bookings {...routerprops} bookings={this.props.bookings} />} />
           <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
@@ -56,7 +61,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    services: state.services
+    services: state.services,
+    currentClient: state.currentClient
   }
 }
 

@@ -11,3 +11,5 @@ const Logout = ({logout}) => {
 }
 
 export default connect(null, {logout})(Logout)
+
+// This component can probably be removed. the onSubmit can moved to a button
