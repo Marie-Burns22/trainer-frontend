@@ -4,7 +4,7 @@ const Home = () => {
     return (
     <div className="container">
         <h1>
-            Welcome to Vegas in Miami Personal Training
+           This is the Home page.
         </h1>
     </div>
     

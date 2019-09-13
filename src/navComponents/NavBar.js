@@ -9,36 +9,25 @@ import styled from 'styled-components';
 // import FormControl from 'react-bootstrap/FormControl';
 // import Button from 'react-bootstrap/Button'
 
-const Styles = styled.div`
+
+
+const NavBar = ({currentClient}) => {
+    const Styles = styled.div`
     .navbar {
-        background-color: #222;
+        background-color: #323;
     }
 
-    .navbar-brand, .navbar-nav .nav.link {
-        color: #bbb;
+    .navbar-brand, .navbar-nav .nav-link {
+        color: #abc;
 
         &:hover {
             color: white;
         }
     }
 `;
-
-const NavBar = ({currentClient}) => {
     return (
-        // <Navbar bg="light" expand="lg">
-        //     {currentClient 
-        //     ? 
-        //     <NavLink to="/logout">Logout</NavLink> 
-        //     : 
-        //     <div>
-        //         <NavLink to="/login">Login</NavLink>
-        //         <NavLink to="/signup">Sign Up</NavLink> 
-        //     </div>
-        //     }
-        //     <NavLink to="/services">All Services</NavLink>
-        // </Navbar>
         <Styles>
-            <Navbar bg="light" expand="lg">
+            <Navbar expand="lg">
                 <Navbar.Brand href="/">Vegas in Miami</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

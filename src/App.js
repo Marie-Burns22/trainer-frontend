@@ -7,8 +7,9 @@ import { connect } from 'react-redux'
 import {getCurrentClient} from './actions/currentClientAction'
 import {fetchServices} from './actions/serviceActions'
 
-import Home from './navComponents/Home'
 import NavBar from './navComponents/NavBar';
+import Jumbotron from './navComponents/Jumbotron'
+import Home from './navComponents/Home'
 
 import Client from './clientComponents/Client'
 
@@ -40,8 +41,9 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
-          <Home />
           <NavBar />
+          <Jumbotron />
+          <Home />
           {this.props.currentClient ? <Client />: null}
 
           <Route exact path='/login' component={LoginForm}/>

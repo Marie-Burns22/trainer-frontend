@@ -5,8 +5,7 @@ class ClientsContainer extends React.Component {
     render() {
         return(
             <div>
-               {/* { this.props.currentClient ? <p>Welcome, {this.props.currentClient.attributes.name}</p> : <p>Please Login or Signup</p>} 
-               { this.props.currentClient ? <Logout /> : <LoginForm /> } */}
+              
             </div>
         )
     }
