@@ -1,20 +1,25 @@
 import React from 'react';
 import './App.css';
 
+import { Route } from 'react-router-dom';
 import {connect} from 'react-redux'
-import {getCurrentClient} from './actions/currentClientAction'
 
+import {getCurrentClient} from './actions/currentClientAction'
 // import BookingsContainer from './containers/BookingsContainer';
 // import ServicesContainer from './containers/ServicesContainer';
 // import ClientsContainer from './containers/ClientsContainer';
-import NavBar from './navComponents/NavBar';
 import Home from './navComponents/Home'
-import { Route, Switch } from 'react-router-dom';
+import NavBar from './navComponents/NavBar';
 
 import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
-import BookingForm from './bookingComponents/BookingForm'
+
 import Bookings from './bookingComponents/Bookings'
+import BookingForm from './bookingComponents/BookingForm'
+
+import Service from './serviceComponents/Service'
+import Services from './serviceComponents/Services'
+import ServiceForm from './serviceComponents/ServiceForm'
 
 
 class App extends React.Component {
@@ -31,15 +36,22 @@ class App extends React.Component {
           <Home />
           <NavBar />
 
-          {/* <ClientsContainer /> */}
-          {/* <ServicesContainer /> */}
-          {/* <BookingsContainer /> */}
-          <Switch>
-            <Route exact path='/login' component={LoginForm}/>
-            <Route exact path='/signup' component={SignUpForm}/>
-            <Route exact path='/bookings' render={routerprops => <Bookings {...routerprops} bookings={this.props.bookings} />} />
-            <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
-          </Switch>
+          <Route exact path='/login' component={LoginForm}/>
+          <Route exact path='/signup' component={SignUpForm}/>
+          
+          <Route exact path='/bookings' render={routerprops => <Bookings {...routerprops} bookings={this.props.bookings} />} />
+          <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
+
+          <Route exact path='/services' render={routerprops => <Services {...routerprops} services={this.props.services} />} />
+          <Route exact path='/services/new' render={() => <ServiceForm addService={this.props.addService} />} />
+          {/* <Route path='/services/:id' render={ ({ match }) => ( <Service service={this.props.services.find(s => s.id === match.params.id )} /> ) } /> */}
+          {/* <Route path='/services/:id' render={routerprops => <Service services={this.props.services} {...routerprops} />} /> */}
+          <Route exact path="/services/:id" render={(props) => {
+            const serviceId = props.match.params.id
+            const service = this.props.services.find(s => s.id === serviceId)
+            console.log("The service is:", service)
+            return <Service service={service} />
+          }} />} />
       </div>
     );
   }
