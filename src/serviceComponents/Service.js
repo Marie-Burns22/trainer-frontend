@@ -1,16 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 
 const Service = (props) => {
+
     return (
-        <div>
-        {console.log("In Service, the props are:", props)}
-        {props.service ? props.service.attributes.name : null}
+        <Container>
+            {console.log("In Service, the props are:", props)}
+            {props.service ? 
+                <div>
+                    <h3>Service: {props.service.attributes.name}</h3>
+                    <h4>Category: {props.service.attributes.category}</h4>
+                    <h4>Price: ${props.service.attributes.price}</h4>
+                </div>
+            : null}
         {/* <p>The service name is: {props.service.attributes.name}</p> */}
             {/* <p>Service Card:{props.service.attributes.name}</p> */}
-        <h3><Link to="/bookings/new">New Booking</Link> </h3>
-        <h3><Link to="/bookings">All My Bookings</Link></h3>
-        </div> 
+        <Link to="/bookings/new">New Booking</Link>
+        {/* <h3><Link to="/bookings">All My Bookings</Link></h3> */}
+        </Container> 
 
     )
 }

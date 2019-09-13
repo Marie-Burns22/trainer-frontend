@@ -34,7 +34,7 @@ class App extends React.Component {
     const services = this.props.services
     console.log("In findService, this.props.services are:", this.props.services, "serviceName is:", serviceName)
     // debugger
-    return services.find(service => service.attributes.name.toLowerCase() === serviceName)
+    return services.find(service => service.attributes.name === serviceName)
   }
 
   render () {
