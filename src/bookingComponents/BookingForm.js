@@ -11,7 +11,7 @@ class BookingForm extends React.Component {
             time: '11:00',
             service_id: '1'
         }
-}
+    }
 
     handleChange = ({target: {name, value}}) => {
         this.setState({ [name]: value})

@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import {connect} from 'react-redux'
 
 import {getCurrentClient} from './actions/currentClientAction'
+import {fetchServices} from './actions/serviceActions'
 // import BookingsContainer from './containers/BookingsContainer';
 // import ServicesContainer from './containers/ServicesContainer';
 // import ClientsContainer from './containers/ClientsContainer';
@@ -24,15 +25,19 @@ import ServiceForm from './serviceComponents/ServiceForm'
 
 class App extends React.Component {
 
-
   componentDidMount() {
     this.props.getCurrentClient()
+    this.props.fetchServices()
   }
   
+  findService = (serviceName) => {
+    return this.props.services.find(service => service.attributes.name === serviceName)
+  }
+
+
   render () {
     return (
       <div className="container">
-          
           <Home />
           <NavBar />
 
@@ -46,18 +51,20 @@ class App extends React.Component {
           <Route exact path='/services/new' render={() => <ServiceForm addService={this.props.addService} />} />
           {/* <Route path='/services/:id' render={ ({ match }) => ( <Service service={this.props.services.find(s => s.id === match.params.id )} /> ) } /> */}
           {/* <Route path='/services/:id' render={routerprops => <Service services={this.props.services} {...routerprops} />} /> */}
-          <Route exact path="/services/:id" render={(props) => {
-            const serviceId = props.match.params.id
-            const service = this.props.services.find(s => s.id === serviceId)
-            console.log("The service is:", service)
-            return <Service service={service} />
-          }} />} />
+          <Route exact path="/services/:name" render={(rprops) =>  <Service service={this.findService(rprops.match.params.name)} /> } />
       </div>
     );
   }
 }
 
-export default connect(null, {getCurrentClient})(App);
+
+const mapStateToProps = state => {
+  return {
+    services: state.services
+  }
+}
+
+export default connect(mapStateToProps, {getCurrentClient, fetchServices})(App);
 // This component will contain all routes
 // This component will only render home and navbar
 // Should this component render the containers if they do not display anything?

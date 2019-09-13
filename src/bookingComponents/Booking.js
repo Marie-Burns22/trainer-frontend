@@ -10,3 +10,5 @@ const Booking = (props) => {
 }
 
 export default Booking
+
+// This component will render the details of a booking. It should show them when the client clicks on the title of the booking from the Bookings component. It should render right below the 
