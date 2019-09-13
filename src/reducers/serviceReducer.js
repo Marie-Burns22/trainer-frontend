@@ -4,7 +4,7 @@ export default (state = [], action) => {
             return action.services
     
         case "ADD_SERVICE":
-            return {...state, services: [...state.services, action.payload]}
+            return [...state, action.payload]
         default:
             return state
     }
