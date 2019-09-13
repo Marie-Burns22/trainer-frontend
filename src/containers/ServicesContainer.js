@@ -47,3 +47,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {fetchServices, addService})(ServicesContainer)
+
+// This component will fetch the services and pass them to the services component

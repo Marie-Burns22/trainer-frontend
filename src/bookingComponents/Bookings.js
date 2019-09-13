@@ -11,3 +11,6 @@ const Bookings = (props) => {
 }
 
 export default Bookings
+
+// This component will list the bookings for the currentClient
+// It will be linked to from the client component. 

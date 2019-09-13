@@ -42,3 +42,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {fetchBookings, addBooking})(BookingsContainer)
+
+// This container may not be necessary.  Since bookings are only from the current client, the client component may hold the logic instead?

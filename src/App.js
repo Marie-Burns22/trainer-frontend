@@ -46,5 +46,8 @@ class App extends React.Component {
 }
 
 export default connect(null, {getCurrentClient})(App);
+// This component will contain all routes
+// This component will only render home and navbar
+// Should this component render the containers if they do not display anything?
 
 

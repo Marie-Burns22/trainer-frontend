@@ -13,3 +13,6 @@ const Home = () => {
 }
 
 export default Home
+
+// This is a static page with information.
+// All links are in the navbar.js
