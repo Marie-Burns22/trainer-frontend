@@ -17,9 +17,8 @@ class BookingsContainer extends React.Component {
     render() {
         return (
             <div className="BookingsContainer">
-                <div className="navBar">
-                    <h3><NavLink to="/bookings/new">New Booking</NavLink> </h3>
-                    <h3><NavLink to="/bookings">All My Bookings</NavLink></h3>
+                <div>
+                    
                 </div>
             </div>
         );

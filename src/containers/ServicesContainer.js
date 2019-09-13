@@ -10,15 +10,14 @@ import {addService} from '../actions/serviceActions'
 
 class ServicesContainer extends React.Component {
    
-    componentDidMount() {
-        this.props.fetchServices()
-    }
+    // componentDidMount() {
+    //     this.props.fetchServices()
+    // }
    
     render() {
         return(
             <div className="ServicesContainer">
-                <div className="navBar">
-                    <NavLink to="/services">All Services</NavLink>;
+                <div>
                     <NavLink to="/services/new">New Service Form</NavLink>
                 </div>
             </div>

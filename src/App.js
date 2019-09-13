@@ -2,13 +2,11 @@ import React from 'react';
 import './App.css';
 
 import { Route } from 'react-router-dom';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import {getCurrentClient} from './actions/currentClientAction'
 import {fetchServices} from './actions/serviceActions'
-// import BookingsContainer from './containers/BookingsContainer';
-// import ServicesContainer from './containers/ServicesContainer';
-// import ClientsContainer from './containers/ClientsContainer';
+
 import Home from './navComponents/Home'
 import NavBar from './navComponents/NavBar';
 
@@ -22,7 +20,6 @@ import Service from './serviceComponents/Service'
 import Services from './serviceComponents/Services'
 import ServiceForm from './serviceComponents/ServiceForm'
 
-
 class App extends React.Component {
 
   componentDidMount() {
@@ -31,9 +28,11 @@ class App extends React.Component {
   }
   
   findService = (serviceName) => {
-    return this.props.services.find(service => service.attributes.name === serviceName)
+    const services = this.props.services
+    console.log("In findService, this.props.services are:", this.props.services, "serviceName is:", serviceName)
+    // debugger
+    return services.find(service => service.attributes.name.toLowerCase() === serviceName)
   }
-
 
   render () {
     return (
@@ -48,15 +47,12 @@ class App extends React.Component {
           <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
 
           <Route exact path='/services' render={routerprops => <Services {...routerprops} services={this.props.services} />} />
-          <Route exact path='/services/new' render={() => <ServiceForm addService={this.props.addService} />} />
-          {/* <Route path='/services/:id' render={ ({ match }) => ( <Service service={this.props.services.find(s => s.id === match.params.id )} /> ) } /> */}
-          {/* <Route path='/services/:id' render={routerprops => <Service services={this.props.services} {...routerprops} />} /> */}
-          <Route exact path="/services/:name" render={(rprops) =>  <Service service={this.findService(rprops.match.params.name)} /> } />
+          <Route exact path='/services/new' component={ServiceForm} />
+          <Route exact path="/services/:name" render={(rprops) =>  <Service {...rprops} service={this.findService(rprops.match.params.name)} /> } />
       </div>
     );
   }
 }
-
 
 const mapStateToProps = state => {
   return {

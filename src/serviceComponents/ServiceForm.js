@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {addService} from '../actions/serviceActions'
 
 class ServiceForm extends React.Component {
 
@@ -48,6 +51,6 @@ class ServiceForm extends React.Component {
     }
 }
 
-export default ServiceForm
+export default connect(null, {addService})(ServiceForm)
 
 // This form will not be rendered until the teacher model is added. Keep a route

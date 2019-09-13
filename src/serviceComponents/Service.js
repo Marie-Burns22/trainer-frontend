@@ -1,13 +1,17 @@
 import React from 'react';
-// import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
-const Service = ({service}) => {
+const Service = (props) => {
     return (
-        service ?
         <div>
-            <p>Service Card:{service.attributes.name}</p>
-        </div> :
-        <p>No Service Found</p>
+        {console.log("In Service, the props are:", props)}
+        {props.service ? props.service.attributes.name : null}
+        {/* <p>The service name is: {props.service.attributes.name}</p> */}
+            {/* <p>Service Card:{props.service.attributes.name}</p> */}
+        <h3><Link to="/bookings/new">New Booking</Link> </h3>
+        <h3><Link to="/bookings">All My Bookings</Link></h3>
+        </div> 
+
     )
 }
 
