@@ -6,12 +6,22 @@ import Navbar from 'react-bootstrap/Navbar';
 const NavBar = ({currentClient}) => {
     return (
         <Navbar bg="light" expand="lg">
-            {currentClient ? 
-            <NavLink to="/logout">Logout</NavLink> : 
-            <NavLink to="/login">Login</NavLink> &&
-            <NavLink to="/signup">Sign Up</NavLink> }
+            {currentClient 
+            ? 
+            <NavLink to="/logout">Logout</NavLink> 
+            : 
+            <div>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink> 
+            </div>
+            }
             <NavLink to="/services">All Services</NavLink>
         </Navbar>
+
+
+
+
+
     )
 }
 
