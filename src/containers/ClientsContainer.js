@@ -27,3 +27,5 @@ const mapStateToProps = ({ currentClient }) => {
 }
 export default connect(mapStateToProps)(ClientsContainer)
 
+//This component will use currentClient and logic to determine if to render client component?
+
