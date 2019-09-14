@@ -9,7 +9,7 @@ class BookingForm extends React.Component {
         this.state = {
             day: 'Monday',
             time: '11:00',
-            service_id: '1'
+            serviceId: '1'
         }
     }
 
@@ -19,11 +19,11 @@ class BookingForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addBooking(this.state, this.props.currentClient.id)
+        this.props.addBooking(this.state, this.props.clientId)
         this.setState({
             day: 'Monday',
             time: '11:00',
-            service_id: '1'
+            serviceId: '1'
         })
     }
     render() {
@@ -49,7 +49,7 @@ class BookingForm extends React.Component {
                     
                     {/* TODO: service options mapped from an array of services */}
                     <label>Service</label>
-                    <select name='service' placeholder="service" value={this.state.service} onChange={this.handleChange}>
+                    <select name='service' placeholder="service" value={this.state.serviceId} onChange={this.handleChange}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -64,7 +64,7 @@ class BookingForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        currentClient: state.currentClient
+        clientId: state.currentClient.id
     }
 }
 

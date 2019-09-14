@@ -18,7 +18,6 @@ export const deleteBooking = (bookingId, clientId) => {
     }
 }
 
-
 export const fetchBookings = clientId => {
     return dispatch => {
         return fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
@@ -39,9 +38,18 @@ export const fetchBookings = clientId => {
 }
 // TODO: pass in the clientID with the booking and then interpolate it into the url.
 // TODO: return the client rather than the booking and then show all the bookings for the current_client
-export const addBooking = (booking, clientId) => {
+export const addBooking = (booking, clientId, serviceId) => {
     return (dispatch) => {
+        const bookingData = {
+            booking: {
+                date: booking.day,
+                time: booking.time,
+                client_id: clientId,
+                service_id: serviceId
+            }
+        }
         fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

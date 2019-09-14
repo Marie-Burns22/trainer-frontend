@@ -14,12 +14,8 @@ const Service = (props) => {
                     <h4>Price: ${props.service.attributes.price}</h4>
                 </div>
             : null}
-        {/* <p>The service name is: {props.service.attributes.name}</p> */}
-            {/* <p>Service Card:{props.service.attributes.name}</p> */}
-        <Link to="/bookings/new">New Booking</Link>
-        {/* <h3><Link to="/bookings">All My Bookings</Link></h3> */}
+            <Link to="/bookings/new">New Booking</Link>
         </Container> 
-
     )
 }
 
