@@ -7,7 +7,7 @@ import Client from '../clientComponents/Client'
 const Home = (props) => {
     return (
         <div className="container">
-            {props.currentClient ?
+            {props.loggedIn ?
                 <React.Fragment>
                     <Client />
                     {/* <Link href="/bookings/new">New Booking</Link> */}
@@ -16,8 +16,8 @@ const Home = (props) => {
                 <React.Fragment>
                     <h1>Welcome</h1>
                     <p>The Famous Ms. Vegas: Seasoned poleformer and award-winning competitive dancer offering online stretch and pole privates and in-person lessons and training packages in the South Florida Area.</p>
-                    <Link href="/login">Login</Link>
-                    <Link href="/signup">SignUp</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">SignUp</Link>
                 </React.Fragment>
             }
                 <Services />
@@ -27,7 +27,8 @@ const Home = (props) => {
 }
 const mapStateToProps = state => {
     return {
-        currentClient: state.currentClient
+        currentClient: state.currentClient,
+        loggedIn: !!state.currentClient
     }
 }
 

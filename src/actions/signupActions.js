@@ -15,7 +15,7 @@ export const resetSignUpForm = () => {
 
 // async action creators
 
-export const signUp = credentials => {
+export const signUp = (credentials, history) => {
     return dispatch => {
         const clientInfo = {
             client: credentials
@@ -36,6 +36,7 @@ export const signUp = credentials => {
             } else {
                 dispatch(setCurrentClient(response.data))
                 dispatch(resetSignUpForm())
+                history.push('/')
             }
         })
         .catch(console.log)
