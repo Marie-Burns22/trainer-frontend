@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import {deleteService} from '../actions/serviceActions'
 import {connect} from 'react-redux'
+import Button from "react-bootstrap/Button"
 
 const Service = (props) => {
 
-    const deleteService = (event) => {
-        props.deleteService(props.service.id)
+    const deleteService = () => {
+        props.deleteService(props.service.id, props.history)
     }
  
     return (
@@ -18,9 +19,9 @@ const Service = (props) => {
                     <h3>Service: {props.service.attributes.name}</h3>
                     <h4>Category: {props.service.attributes.category}</h4>
                     <h4>Price: ${props.service.attributes.price}</h4>
-                    <button
+                    <Button
                         onClick={deleteService}
-                        className="btn btn-default">delete service</button>
+                        className="btn btn-sm btn-warning">Delete {props.service.attributes.name}</Button>
                 </div>
             : null}
             <Link to="/bookings/new">New Booking</Link>

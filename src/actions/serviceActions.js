@@ -43,7 +43,7 @@ export const addService = (data) => {
     }
 }
 
-export const deleteService = (serviceId) => {
+export const deleteService = (serviceId, history) => {
     return dispatch => {
         fetch(`http://localhost:3000/api/v1/services/${serviceId}`, {
             credentials: "include",
@@ -55,5 +55,6 @@ export const deleteService = (serviceId) => {
         })
         .then(response => response.json())
         .then(services => dispatch(setServices(services.data)))
+        history.push('/services')
     }
 }
