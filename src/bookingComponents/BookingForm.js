@@ -24,7 +24,7 @@ class BookingForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addBooking(this.state, this.props.clientId)
+        this.props.addBooking(this.state, this.props.clientId, this.props.history)
         this.setState({
             day: 'Monday',
             time: '11:00',

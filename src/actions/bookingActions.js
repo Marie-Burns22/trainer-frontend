@@ -42,7 +42,7 @@ export const fetchBookings = clientId => {
     }
 }
 
-export const addBooking = (booking, clientId) => {
+export const addBooking = (booking, clientId, history) => {
     return (dispatch) => {
         const bookingData = {
             booking: {
@@ -63,5 +63,6 @@ export const addBooking = (booking, clientId) => {
         })
         .then(response => response.json())
         .then(client => dispatch({type:'ADD_BOOKING', payload: client.data}))
+        history.push('/bookings')
     }
 }
