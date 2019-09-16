@@ -1,6 +1,6 @@
 export default (state = [], action) => {
     switch (action.type) {
-        case "FETCH_BOOKINGS":
+        case "SET_BOOKINGS":
             return action.bookings
         
         default:

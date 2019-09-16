@@ -1,7 +1,7 @@
 import React from 'react';
 // import './App.css';
 
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import {getCurrentClient} from './actions/currentClientAction'
@@ -15,7 +15,7 @@ import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
 import Logout from './clientComponents/Logout';
 
-import Bookings from './bookingComponents/Bookings'
+import BookingsContainer from './containers/BookingsContainer'
 import BookingForm from './bookingComponents/BookingForm'
 
 import Service from './serviceComponents/Service'
@@ -31,8 +31,6 @@ class App extends React.Component {
   
   findService = (serviceName) => {
     const services = this.props.services
-    console.log("In findService, this.props.services are:", this.props.services, "serviceName is:", serviceName)
-    // debugger
     return services.find(service => service.attributes.name === serviceName)
   }
 
@@ -46,7 +44,7 @@ class App extends React.Component {
           <Route exact path='/signup' component={SignUpForm}/>
           <Route exact path='/logout' component={Logout}/>
           
-          <Route exact path='/bookings' render={routerprops => <Bookings {...routerprops} bookings={this.props.bookings} />} />
+          <Route exact path='/bookings' render={routerprops => <BookingsContainer {...routerprops} bookings={this.props.bookings} />} />
           <Route exact path='/bookings/new' render={() => <BookingForm addBooking={this.props.addBooking} />} />
 
           <Route exact path='/services' render={routerprops => <Services {...routerprops} services={this.props.services} />} />
@@ -64,7 +62,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {getCurrentClient, fetchServices})(App);
+export default withRouter(connect(mapStateToProps, {getCurrentClient, fetchServices})(App));
 // This component will contain all routes
 // This component will only render home and navbar
 // Should this component render the containers if they do not display anything?

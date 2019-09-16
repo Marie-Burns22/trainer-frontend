@@ -1,24 +1,26 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {NavLink} from 'react-router-dom';
+// import {NavLink} from 'react-router-dom';
 
 import {fetchBookings} from '../actions/bookingActions'
 import {addBooking} from '../actions/bookingActions'
+import {getCurrentClient} from '../actions/currentClientAction'
+
+import Bookings from '../bookingComponents/Bookings'
 
 class BookingsContainer extends React.Component {
 
-    // componentDidMount commented out to avoid automatic alert everytime page loads.
-    // TODO: fetchBookings only when asked for by currentclient clicking on a button to see all their bookings. I think that means it goes inthe bookings component
-    // fetchBookings requires currentClient.id to be passed in
-    // componentDidMount() {
-        // this.props.fetchBookings() 
-    // }
+  
+    componentDidMount() {
+        this.props.getCurrentClient()
+        this.props.fetchBookings() 
+    }
 
     render() {
         return (
             <div className="BookingsContainer">
                 <div>
-                    
+                    <Bookings bookings={this.props.bookings} client={this.props.currentClient}/>
                 </div>
             </div>
         );
@@ -33,6 +35,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchBookings, addBooking})(BookingsContainer)
+export default connect(mapStateToProps, {fetchBookings, addBooking, getCurrentClient})(BookingsContainer)
 
 // This container may not be necessary.  Since bookings are only from the current client, the client component may hold the logic instead?

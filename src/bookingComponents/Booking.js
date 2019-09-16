@@ -1,10 +1,14 @@
 import React from 'react';
 
 const Booking = (props) => {
+    console.log("In bookings.js the props are:", props)
     return(
         <div>
-            <h3> Your Booking for:  Name of Service will go here</h3>
-            <p> Is on: {props.booking.attributes.day} at {props.booking.attributes.time}</p>
+            {props.booking ?
+                <p>{props.booking.attributes.service.name}, on {props.booking.attributes.day}, at {props.booking.attributes.time}</p>
+            :
+            null
+            }
         </div>
     )
 }

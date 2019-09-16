@@ -10,6 +10,7 @@ export const setServices = services => {
 export const fetchServices = () => {
     return dispatch => {
         fetch("http://localhost:3000/api/v1/services", {
+            credentials: 'include',
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -28,12 +29,13 @@ export const fetchServices = () => {
 
 export const addService = (data) => {
     return (dispatch) => {
-       return fetch("http://localhost:3000/api/v1/services", {
+        return fetch("http://localhost:3000/api/v1/services", {
+        credentials: 'include',    
+        method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            method: 'POST',
             body: JSON.stringify(data)
         })
         .then(response => response.json())

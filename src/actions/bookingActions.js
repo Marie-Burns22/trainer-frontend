@@ -1,7 +1,7 @@
 // synchronous actions
 export const setBookings = bookings => {
     return {
-        type: "FETCH_BOOKINGS",
+        type: "SET_BOOKINGS",
         bookings
     }
 }
@@ -11,7 +11,8 @@ export const deleteBooking = (bookingId, clientId) => {
 
     return (dispatch) => {
         return fetch(`http://localhost:3000/api/v1/clients/${clientId}/transactions/${bookingId}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'include'
         })
         .then(response => response.json())
         .then(client => dispatch({type: 'DELETE_TRANSACTION', payload: client}))
@@ -21,6 +22,7 @@ export const deleteBooking = (bookingId, clientId) => {
 export const fetchBookings = clientId => {
     return dispatch => {
         return fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
+            credentials: "include",
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
