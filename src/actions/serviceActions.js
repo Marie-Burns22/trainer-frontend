@@ -29,9 +29,9 @@ export const fetchServices = () => {
 
 export const addService = (data) => {
     return (dispatch) => {
-        return fetch("http://localhost:3000/api/v1/services", {
-        credentials: 'include',    
-        method: 'POST',
+        fetch("http://localhost:3000/api/v1/services", {
+            credentials: 'include',    
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -40,5 +40,20 @@ export const addService = (data) => {
         })
         .then(response => response.json())
         .then(service => dispatch({type: 'ADD_SERVICE', payload: service}))
+    }
+}
+
+export const deleteService = (serviceId) => {
+    return dispatch => {
+        fetch(`http://localhost:3000/api/v1/services/${serviceId}`, {
+            credentials: "include",
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(services => dispatch(setServices(services.data)))
     }
 }

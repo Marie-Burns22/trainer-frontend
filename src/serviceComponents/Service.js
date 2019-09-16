@@ -1,9 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
+import {deleteService} from '../actions/serviceActions'
+import {connect} from 'react-redux'
 
 const Service = (props) => {
 
+    const deleteService = (event) => {
+        props.deleteService(props.service.id)
+    }
+ 
     return (
         <Container>
             {console.log("In Service, the props are:", props)}
@@ -12,6 +18,9 @@ const Service = (props) => {
                     <h3>Service: {props.service.attributes.name}</h3>
                     <h4>Category: {props.service.attributes.category}</h4>
                     <h4>Price: ${props.service.attributes.price}</h4>
+                    <button
+                        onClick={deleteService}
+                        className="btn btn-default">delete service</button>
                 </div>
             : null}
             <Link to="/bookings/new">New Booking</Link>
@@ -19,7 +28,7 @@ const Service = (props) => {
     )
 }
 
-export default Service
+export default connect(null, {deleteService})(Service)
 
 
 // This component should render when a client clicks on a link from the the services container
