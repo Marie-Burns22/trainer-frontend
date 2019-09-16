@@ -1,18 +1,32 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import Button from 'react-bootstrap/Button'
+import {deleteBooking} from '../actions/bookingActions'
 
 const Booking = (props) => {
-    console.log("In bookings.js the props are:", props)
+console.log(props)
+    const deleteBooking = () => {
+        props.deleteBooking(props.clientId, props.booking.id)
+    }
+
     return(
         <div>
-            {props.booking ?
+            {props.booking.attributes.service ?
                 <p>{props.booking.attributes.service.name}, on {props.booking.attributes.day}, at {props.booking.attributes.time}</p>
             :
-            null
+            <p>The service you booked has been canceled. Please contact your teacher to reschedule</p>
             }
+            <Button
+                onClick={deleteBooking}
+                className="btn btn-sm btn-warning">Delete booking</Button>
         </div>
     )
 }
 
-export default Booking
+const mapStateToProps = state => {
+    return {
+        clientId: state.currentClient.id
+    }
+}
 
-// This component will render the details of a booking. It should show them when the client clicks on the title of the booking from the Bookings component. It should render right below the 
+export default connect(mapStateToProps, {deleteBooking})(Booking)

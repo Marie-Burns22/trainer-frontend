@@ -7,21 +7,24 @@ export const setBookings = bookings => {
 }
 
 // async actions
-export const deleteBooking = (bookingId, clientId) => {
-
+export const deleteBooking = (clientId, bookingId) => {
     return (dispatch) => {
-        return fetch(`http://localhost:3000/api/v1/clients/${clientId}/transactions/${bookingId}`, {
+        fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings/${bookingId}`, {
+            credentials: 'include',
             method: 'DELETE',
-            credentials: 'include'
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
         })
         .then(response => response.json())
-        .then(client => dispatch({type: 'DELETE_TRANSACTION', payload: client}))
+        .then(bookings => dispatch(setBookings(bookings.data)))
     }
 }
 
 export const fetchBookings = clientId => {
     return dispatch => {
-        return fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
+        fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
             credentials: "include",
             method: 'GET',
             headers: {
@@ -29,11 +32,11 @@ export const fetchBookings = clientId => {
             },
         })
             .then(r => r.json())
-            .then(response => {
-                if (response.error) {
-                    alert(response.error)
+            .then(bookings => {
+                if (bookings.error) {
+                    alert(bookings.error)
                 } else {
-                    dispatch(setBookings(response.data))
+                    dispatch(setBookings(bookings.data))
                 }
             })
     }

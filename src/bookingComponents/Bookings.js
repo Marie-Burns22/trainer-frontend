@@ -2,7 +2,6 @@ import React from 'react';
 import Booking from './Booking';
 
 const Bookings = (props) => {
-    console.log("The props in Bookings.js are:", props)
     return(
         <div className="container">       
         {props.bookings ?   
@@ -16,8 +15,4 @@ const Bookings = (props) => {
         </div>
     )
 }
-
 export default Bookings
-
-// This component will list the bookings for the currentClient
-// It will be linked to from the client component. 
