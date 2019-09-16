@@ -8,14 +8,11 @@ import store from './store.js'
 import {BrowserRouter as Router} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Layout} from './navComponents/Layout'
-import NavBar from './navComponents/NavBar';
-import PhotoHeading from './navComponents/PhotoHeading';
+
 
 ReactDOM.render(
     <Provider store={ store }>
         <React.Fragment>
-            <NavBar />
-            <PhotoHeading />
             <Layout>
                 <Router>
                     <App />

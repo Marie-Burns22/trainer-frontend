@@ -8,8 +8,10 @@ import {getCurrentClient} from './actions/currentClientAction'
 import {fetchServices} from './actions/serviceActions'
 
 import Home from './navComponents/Home'
+import NavBar from './navComponents/NavBar';
+import PhotoHeading from './navComponents/PhotoHeading'
 
-import Client from './clientComponents/Client'
+// import Client from './clientComponents/Client'
 
 import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
@@ -37,6 +39,8 @@ class App extends React.Component {
   render () {
     return (
       <div className="container">
+          <NavBar />
+          <PhotoHeading />
           <Route exact path='/' component={Home}/>
           {/* {this.props.currentClient ? <Client />: null} */}
 

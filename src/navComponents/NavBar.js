@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav';
@@ -37,7 +37,9 @@ const NavBar = ({currentClient}) => {
                         {currentClient ?
                         <React.Fragment>
                             <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link href="/bookings/new">New Booking</Nav.Link></Nav.Item>
+                            {/* <Nav.Item><Nav.Link href="/bookings/new">New Booking</Nav.Link></Nav.Item> */}
+                            <Nav.Item><Nav.Link as={NavLink} to="/bookings/new">New Booking</Nav.Link></Nav.Item>
+
                         </React.Fragment>
                         :
                         <React.Fragment>

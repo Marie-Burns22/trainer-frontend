@@ -11,8 +11,8 @@ const Client = (props) => {
                 <h2>Welcome, {props.currentClient.attributes.name}</h2>
                 {/* <NavLink to="/bookings">All My Bookings</NavLink>  */}
                 <span>
-                    <Button className="btn-md btn-info" href="/bookings">All My Bookings</Button>
-                    <Button className="btn-md btn-success" href="/bookings/new">New Booking</Button>
+                    <Button className="btn-md btn-info" as={NavLink} to="/bookings">All My Bookings</Button>
+                    <Button className="btn-md btn-success" as={NavLink} to="/bookings/new">New Booking</Button>
                 </span>
             </div>
                 : null
