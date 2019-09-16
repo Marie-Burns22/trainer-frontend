@@ -49,10 +49,13 @@ class BookingForm extends React.Component {
                     
                     {/* TODO: service options mapped from an array of services */}
                     <label>Service</label>
-                    <select name='service' placeholder="service" value={this.state.serviceId} onChange={this.handleChange}>
-                        <option>1</option>
+
+
+                    <select name='serviceId' placeholder="service" value={this.state.serviceId} onChange={this.handleChange}>
+                    {this.props.services.map(service => <option value={service.id}>{service.attributes.name}</option>)}
+                        {/* <option>1</option>
                         <option>2</option>
-                        <option>3</option>
+                        <option>3</option> */}
                     </select>
                     
                     <input type='submit' placeholder="Book" />
@@ -64,8 +67,12 @@ class BookingForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        clientId: state.currentClient.id
+        clientId: state.currentClient.id,
+        services: state.services
     }
 }
 
 export default connect(mapStateToProps, {addBooking})(BookingForm)
+
+
+// Options for Service drop down menu should be iterated from all services instead of hard coded.

@@ -6,7 +6,7 @@ export default (state = null, action) => {
         case "CLEAR_CURRENT_CLIENT":
             return null
         case "ADD_BOOKING":
-            return action.client
+            return action.payload
         default:
             return state
     }

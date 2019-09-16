@@ -36,16 +36,15 @@ export const fetchBookings = clientId => {
             })
     }
 }
-// TODO: pass in the clientID with the booking and then interpolate it into the url.
-// TODO: return the client rather than the booking and then show all the bookings for the current_client
-export const addBooking = (booking, clientId, serviceId) => {
+
+export const addBooking = (booking, clientId) => {
     return (dispatch) => {
         const bookingData = {
             booking: {
-                date: booking.day,
+                day: booking.day,
                 time: booking.time,
+                service_id: booking.serviceId,
                 client_id: clientId,
-                service_id: serviceId
             }
         }
         fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
@@ -55,9 +54,9 @@ export const addBooking = (booking, clientId, serviceId) => {
                 'Accept': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify(booking)
+            body: JSON.stringify(bookingData)
         })
         .then(response => response.json())
-        .then(booking => dispatch({type:'ADD_BOOKING', payload: booking}))
+        .then(client => dispatch({type:'ADD_BOOKING', payload: client.data}))
     }
 }

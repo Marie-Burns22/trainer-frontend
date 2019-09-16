@@ -35,7 +35,10 @@ const NavBar = ({currentClient}) => {
                     <Nav className="ml-auto">
                         <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                         {currentClient ?
-                        <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
+                        <React.Fragment>
+                            <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link href="/bookings/new">New Booking</Nav.Link></Nav.Item>
+                        </React.Fragment>
                         :
                         <React.Fragment>
                             <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
