@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
+import { connect } from 'react-redux'
 const Services = (props) => {
     return(
         <div>
@@ -13,6 +13,12 @@ const Services = (props) => {
         </div>
     )
 }
-export default Services
+
+const mapStateToProps = state => {
+    return {
+        services: state.services
+    }
+}
+export default connect(mapStateToProps)(Services)
 
 // The links should render a card that shows the service on the same page as the list of services.
