@@ -1,4 +1,4 @@
-import clientReducer from './reducers/clientReducer'
+
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import bookingReducer from './reducers/bookingReducer';
@@ -9,7 +9,6 @@ import signUpReducer from './reducers/signUpReducer';
 
 const reducer = combineReducers({
     bookings: bookingReducer,
-    clients: clientReducer,
     currentClient: currentClientReducer,
     services: serviceReducer,
     loginForm: loginFormReducer,

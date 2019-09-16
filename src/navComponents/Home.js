@@ -10,12 +10,12 @@ const Home = (props) => {
             {props.currentClient ?
                 <React.Fragment>
                     <Client />
-                    <Link href="/bookings/new">New Booking</Link>
+                    {/* <Link href="/bookings/new">New Booking</Link> */}
                 </React.Fragment>
                 :
                 <React.Fragment>
                     <h1>Welcome</h1>
-                    <p>The Famous Ms. Vegas Seasoned poleformer and award-winning competitive dancer offering online stretch and pole privates and in-person lessons and training packages in the South Florida Area.</p>
+                    <p>The Famous Ms. Vegas: Seasoned poleformer and award-winning competitive dancer offering online stretch and pole privates and in-person lessons and training packages in the South Florida Area.</p>
                     <Link href="/login">Login</Link>
                     <Link href="/signup">SignUp</Link>
                 </React.Fragment>

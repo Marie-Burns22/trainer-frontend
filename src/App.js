@@ -38,7 +38,7 @@ class App extends React.Component {
     return (
       <div className="container">
           <Route exact path='/' component={Home}/>
-          {this.props.currentClient ? <Client />: null}
+          {/* {this.props.currentClient ? <Client />: null} */}
 
           <Route exact path='/login' component={LoginForm}/>
           <Route exact path='/signup' component={SignUpForm}/>
