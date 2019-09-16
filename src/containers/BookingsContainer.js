@@ -18,7 +18,7 @@ class BookingsContainer extends React.Component {
 
     render() {
         return (
-            <div className="BookingsContainer">
+            <div className="card">
                 <div>
                     <Bookings bookings={this.props.bookings} client={this.props.currentClient}/>
                 </div>

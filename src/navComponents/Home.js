@@ -6,7 +6,7 @@ import Client from '../clientComponents/Client'
 
 const Home = (props) => {
     return (
-        <div className="container">
+        <div className="home">
             {props.loggedIn ?
                 <React.Fragment>
                     <Client />

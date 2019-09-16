@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 const Client = (props) => {
     return (
-        <div className="container">
+        <div className="client">
             {props.currentClient ?
             <div>
                 <h2>Welcome, {props.currentClient.attributes.name}</h2>

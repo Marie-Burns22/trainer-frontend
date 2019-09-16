@@ -2,9 +2,8 @@ import React from 'react';
 import Booking from './Booking';
 
 const Bookings = (props) => {
-    console.log(props.bookings)
     return(
-        <div className="container">       
+        <div className="Bookings List">       
         {props.bookings.length > 0 ?   
         <React.Fragment>
             <h3>My Bookings</h3>

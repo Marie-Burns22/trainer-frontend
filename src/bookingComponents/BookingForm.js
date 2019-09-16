@@ -33,7 +33,7 @@ class BookingForm extends React.Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="Form">
                 <h3>New Booking Form</h3>
                 <form onSubmit={this.handleSubmit}>
                     

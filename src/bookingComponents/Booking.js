@@ -10,7 +10,7 @@ console.log(props)
     }
 
     return(
-        <div>
+        <div className="card">
             {props.booking.attributes.service ?
                 <p>{props.booking.attributes.service.name}, on {props.booking.attributes.day}, at {props.booking.attributes.time}</p>
             :

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import Container from 'react-bootstrap/Container'
 import {deleteService} from '../actions/serviceActions'
 import {connect} from 'react-redux'
 import Button from "react-bootstrap/Button"
@@ -12,7 +11,8 @@ const Service = (props) => {
     }
  
     return (
-        <Container>
+
+        <div className="card">
             {console.log("In Service, the props are:", props)}
             {props.service ? 
                 <div>
@@ -25,7 +25,8 @@ const Service = (props) => {
                 </div>
             : null}
             <Link to="/bookings/new">New Booking</Link>
-        </Container> 
+       
+        </div>
     )
 }
 

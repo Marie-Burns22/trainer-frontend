@@ -22,7 +22,7 @@ const SignUpForm = ({ updateSignUpForm, signUp, signUpFormData, history }) => {
     }
 
     return (
-        <div className="container">
+        <div className="Form">
             <form onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" placeholder="Name" name="name" onChange={handleChange} value={signUpFormData.name}/>
