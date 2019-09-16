@@ -8,7 +8,7 @@ const Bookings = (props) => {
         {props.bookings.length > 0 ?   
         <React.Fragment>
             <h3>My Bookings</h3>
-            {props.bookings.map(booking => <li key={booking.id}> <Booking booking={booking}/></li>)}
+            {props.bookings.map(booking =>  <Booking booking={booking}/>)}
         </React.Fragment> 
         : 
             <p>You have no current bookings</p>
