@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {deleteService} from '../actions/serviceActions'
 import {connect} from 'react-redux'
 import Button from "react-bootstrap/Button"
@@ -24,7 +24,7 @@ const Service = (props) => {
                         className="btn btn-sm btn-warning">Delete {props.service.attributes.name}</Button>
                 </div>
             : null}
-            <Link to="/bookings/new">New Booking</Link>
+            <Button as={NavLink} className="btn btn-sm btn-success" to="/bookings/new">New Booking</Button>
        
         </div>
     )

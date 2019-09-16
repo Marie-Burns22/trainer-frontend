@@ -33,13 +33,12 @@ const NavBar = ({currentClient}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
+
                         <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
+
                         {currentClient ?
                         <React.Fragment>
                             <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
-                            {/* <Nav.Item><Nav.Link href="/bookings/new">New Booking</Nav.Link></Nav.Item> */}
-                            <Nav.Item><Nav.Link as={NavLink} to="/bookings/new">New Booking</Nav.Link></Nav.Item>
-
                         </React.Fragment>
                         :
                         <React.Fragment>
@@ -47,12 +46,21 @@ const NavBar = ({currentClient}) => {
                             <Nav.Item><Nav.Link href="/signup">Sign Up</Nav.Link></Nav.Item>
                         </React.Fragment>    
                         }
+
+                        <NavDropdown title="Bookings" id="basic-nav-dropdown">
+                            <Nav.Item> <NavDropdown.Item as={NavLink} to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
+                            {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+                            {/* {/* <NavDropdown.Divider /> */}
+                            <Nav.Item><NavDropdown.Item as={NavLink} to="/bookings/new">New Booking</NavDropdown.Item></Nav.Item>
+                            {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */} 
+                        </NavDropdown>
+
                         <NavDropdown title="Services" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/services">All Services</NavDropdown.Item>
-                            <NavDropdown.Item href="/services/new">New Service</NavDropdown.Item>
                             {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
-                            {/* <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                                <NavDropdown.Divider />
+                            <NavDropdown.Item href="/services/new">New Service</NavDropdown.Item>
+                            {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */} 
                         </NavDropdown>
                     </Nav>
                     {/* <Form inline>
