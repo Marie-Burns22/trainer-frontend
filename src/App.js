@@ -47,7 +47,7 @@ class App extends React.Component {
             <Route exact path='/signup' component={SignUpForm}/>
             <Route exact path='/logout' component={Logout}/>
             
-            <Route exact path='/bookings' render={routerprops => <BookingsContainer {...routerprops} bookings={this.props.bookings} />} />
+            <Route exact path='/bookings' render={routerprops => <BookingsContainer {...routerprops} bookings={this.props.bookings} currentClient={this.props.currentClient}/>} />
             <Route exact path='/bookings/new' component={BookingForm} />
           
 
