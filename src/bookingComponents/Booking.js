@@ -2,24 +2,40 @@ import React from 'react';
 import {connect} from 'react-redux'
 import Button from 'react-bootstrap/Button'
 import {deleteBooking} from '../actions/bookingActions'
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroupItem'
+
 
 const Booking = (props) => {
-console.log(props)
+
     const deleteBooking = () => {
         props.deleteBooking(props.clientId, props.booking.id)
     }
 
-    return(
-        <div className="card">
-            {props.booking.attributes.service ?
-                <p>{props.booking.attributes.service.name}, on {props.booking.attributes.day}, at {props.booking.attributes.time}</p>
+    return (
+
+        <Card style={{ width: '18rem' }}>
+            {props.booking.attributes.service 
+            ?
+            <React.Fragment>
+                <Card.Body>
+                    <Card.Title>{props.booking.attributes.service.name}</Card.Title>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                    <ListGroupItem>{props.booking.attributes.day}</ListGroupItem>
+                    <ListGroupItem>{props.booking.attributes.time}</ListGroupItem>
+                </ListGroup>
+            </React.Fragment>
             :
-            <p>The service you booked has been canceled. Please contact your teacher to reschedule</p>
+            <Card.Body>
+                <Card.Title>The service you booked has been canceled. Please contact your teacher to reschedule</Card.Title>
+            </Card.Body>
             }
-            <Button
-                onClick={deleteBooking}
-                className="btn btn-sm btn-warning">Delete booking</Button>
-        </div>
+            <Card.Body>
+                <Card.Link><Button onClick={deleteBooking} className="btn btn-sm btn-warning">Delete booking</Button></Card.Link>
+            </Card.Body>
+        </Card>
     )
 }
 
