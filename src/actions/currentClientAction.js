@@ -50,7 +50,6 @@ export const logout = (history) => {
             credentials: "include",
             method: "DELETE"
         })
-        // history.push('/')
     }
 }
 
@@ -70,7 +69,7 @@ export const getCurrentClient = () => {
                     alert(response.error)
                 } else {
                     dispatch(setCurrentClient(response.data))
-                    dispatch(fetchBookings())
+                    // dispatch(fetchBookings())
                 }
             })
             .catch(console.log)

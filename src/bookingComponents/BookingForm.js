@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux"
 import {addBooking} from "../actions/bookingActions"
-import {getCurrentClient} from '../actions/currentClientAction'
+
 
 class BookingForm extends React.Component {
     
@@ -12,10 +12,6 @@ class BookingForm extends React.Component {
             time: '11:00',
             serviceId: '1'
         }
-    }
-
-    componentDidMount() {
-        this.props.getCurrentClient()
     }
 
     handleChange = ({target: {name, value}}) => {
@@ -32,6 +28,7 @@ class BookingForm extends React.Component {
         })
     }
     render() {
+        console.log("The props in bookingform are:", this.props)
         return (
             <div className="Form">
                 <h3>New Booking Form</h3>
@@ -72,12 +69,11 @@ class BookingForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        client: state.currentClient,
         services: state.services
     }
 }
 
-export default connect(mapStateToProps, {addBooking, getCurrentClient})(BookingForm)
+export default connect(mapStateToProps, {addBooking})(BookingForm)
 
 
 // Options for Service drop down menu should be iterated from all services instead of hard coded.

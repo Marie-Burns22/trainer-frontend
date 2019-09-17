@@ -21,7 +21,7 @@ export const deleteBooking = (clientId, bookingId) => {
         .then(bookings => dispatch(setBookings(bookings.data)))
     }
 }
-
+// The clientId is currently being passed undefined. This fetch request still works because the backend uses its own current_client and logged_in? methods to get the bookings for a specific client.  Also, the routes are nested so the route expects something in the url between clients and bookings and undefined works as would a number.  If you remove clientId from this api url, you will need to change the route in the backend.
 export const fetchBookings = clientId => {
     return dispatch => {
         fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
@@ -62,7 +62,7 @@ export const addBooking = (booking, clientId, history) => {
             body: JSON.stringify(bookingData)
         })
         .then(response => response.json())
-        .then(client => dispatch({type:'ADD_BOOKING', payload: client.data}))
+        .then(bookings => dispatch(setBookings(bookings.data)))
         history.push('/bookings')
     }
 }

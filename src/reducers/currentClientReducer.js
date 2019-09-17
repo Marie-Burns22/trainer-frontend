@@ -5,8 +5,8 @@ export default (state = null, action) => {
             return action.client
         case "CLEAR_CURRENT_CLIENT":
             return null
-        case "ADD_BOOKING":
-            return action.payload
+        // case "ADD_BOOKING":
+        //     return action.payload
         default:
             return state
     }

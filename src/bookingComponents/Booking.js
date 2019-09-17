@@ -5,12 +5,13 @@ import {deleteBooking} from '../actions/bookingActions'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
+import {NavLink} from 'react-router-dom'
 
 
 const Booking = (props) => {
 
     const deleteBooking = () => {
-        props.deleteBooking(props.clientId, props.booking.id)
+        props.deleteBooking(props.client.id, props.booking.id)
     }
 
     return (
@@ -34,6 +35,7 @@ const Booking = (props) => {
             }
             <Card.Body>
                 <Card.Link><Button onClick={deleteBooking} className="btn btn-sm btn-warning">Delete booking</Button></Card.Link>
+                <Card.Link><Button as={NavLink} className="btn btn-sm btn-success" to="/bookings/new">New Booking</Button></Card.Link>
             </Card.Body>
         </Card>
     )
@@ -41,7 +43,7 @@ const Booking = (props) => {
 
 const mapStateToProps = state => {
     return {
-        clientId: state.currentClient.id
+        client: state.currentClient
     }
 }
 
