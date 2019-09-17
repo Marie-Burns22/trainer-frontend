@@ -1,12 +1,13 @@
 import React from 'react';
 import Booking from './Booking';
+import { connect } from 'react-redux'
 
 const Bookings = (props) => {
     return(
-        <div className="Bookings List">       
+        <div>       
         {props.bookings.length > 0 ?   
         <React.Fragment>
-            <h3>My Bookings</h3>
+            <h3>Bookings for {props.clientName}</h3>
             {props.bookings.map(booking =>  <Booking booking={booking}/>)}
         </React.Fragment> 
         : 
@@ -15,4 +16,10 @@ const Bookings = (props) => {
         </div>
     )
 }
-export default Bookings
+
+const mapStateToProps = ({currentClient}) => {
+    return {
+        clientName: currentClient.attributes.name 
+    }
+}
+export default connect(mapStateToProps)(Bookings)
