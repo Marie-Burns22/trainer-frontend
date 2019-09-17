@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addService} from '../actions/serviceActions'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class ServiceForm extends React.Component {
 
@@ -27,25 +29,28 @@ class ServiceForm extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h3>ServiceForm</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Service Name</label>
-                    <input type='text' name='name' placeholder="Name" value={this.state.name} onChange={this.handleChange}/>
-                    
-                    <label>Service Category</label>
-                    <select name="category" placeholder="Category" value={this.state.category} onChange={this.handleChange}>
+            <Form onSubmit={this.handleSubmit}>
+            <h4>New Service Form</h4>
+                <Form.Group controlId="serviceForm.ControlInput1">
+                    <Form.Label>Service Name</Form.Label>
+                    <Form.Control type='text' name='name' placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+                </Form.Group>
+
+                <Form.Group controlId="serviceForm.ControlInput1">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control type='text' name='price' placeholder="Price" value={this.state.price} onChange={this.handleChange} />
+                </Form.Group>
+
+                <Form.Group controlId="serviceForm.ControlSelect1">
+                    <Form.Label>Category</Form.Label>
+                    <Form.Control as="select" name="category" placeholder="Category" value={this.state.category} onChange={this.handleChange}>
                         <option>In Person</option>
                         <option>Online</option>
-                    </select>
-                    
-                    <label>Service Price</label>
-                    <input type='text' name="price" placeholder="Price" value={this.state.price} onChange={this.handleChange}/>
-                    
-                    <input type="submit" value="Create New Service"/>
-                </form>
-                
-            </div>
+                    </Form.Control>
+                </Form.Group>
+
+                <Button variant="primary" type="submit">Create New Service</Button>  
+            </Form>
         )
     }
 }
