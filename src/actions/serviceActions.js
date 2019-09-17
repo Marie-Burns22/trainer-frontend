@@ -27,7 +27,7 @@ export const fetchServices = () => {
     }
 }
 
-export const addService = (data) => {
+export const addService = (data, history) => {
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/services", {
             credentials: 'include',    
@@ -39,7 +39,8 @@ export const addService = (data) => {
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(service => dispatch({type: 'ADD_SERVICE', payload: service}))
+        .then(service => dispatch({type: 'ADD_SERVICE', payload: service.data}))
+        history.push('/services')
     }
 }
 

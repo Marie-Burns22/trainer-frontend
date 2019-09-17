@@ -1,15 +1,22 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
+
 const Services = (props) => {
     return(
-        <div id="Service-list">
-            <h2>Available Services</h2>
-            {props.services.map(service => 
-            <li key={service.id}> 
-                <Link to={`/services/${service.attributes.name}`}>{service.attributes.name}</Link>  
-            </li>)}
-           
+        <div className="Services">
+            <div>
+                <h2>Available Services</h2>
+                {props.services.map(service =>
+                    <React.Fragment key={service.id}>
+                        <NavLink 
+                             to={`/services/${service.attributes.name}`}>
+                                {service.attributes.name}
+                        </NavLink>
+                        <br/>
+                </React.Fragment>
+                )}
+            </div>
         </div>
     )
 }

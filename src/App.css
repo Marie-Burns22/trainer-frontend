@@ -32,10 +32,13 @@
   }
 }
 
-.Service-list {
+.Services {
+  display: flex;
+  flex-direction: row;
   
 }
 
+/* This may be overidden in navbar by the Styles  */
 .active {
-  color: purple
+  color: rgb(167, 28, 167);
 }

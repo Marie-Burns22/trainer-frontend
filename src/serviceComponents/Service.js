@@ -11,20 +11,20 @@ const Service = (props) => {
     }
  
     return (
-
         <div className="card">
-            {console.log("In Service, the props are:", props)}
-            {props.service ? 
-                <div>
+            {props.service 
+            ? 
+                <React.Fragment>
                     <h3>Service: {props.service.attributes.name}</h3>
                     <h4>Category: {props.service.attributes.category}</h4>
                     <h4>Price: ${props.service.attributes.price}</h4>
                     <Button
                         onClick={deleteService}
                         className="btn btn-sm btn-warning">Delete {props.service.attributes.name}</Button>
-                </div>
-            : null}
-            <Button as={NavLink} className="btn btn-sm btn-success" to="/bookings/new">New Booking</Button>
+                    <Button as={NavLink} className="btn btn-sm btn-success" to="/bookings/new">New Booking</Button>
+                </React.Fragment>
+            : 
+            null}
        
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import {addService} from '../actions/serviceActions'
 
 class ServiceForm extends React.Component {
@@ -18,7 +17,7 @@ class ServiceForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addService(this.state)
+        this.props.addService(this.state, this.props.history)
         this.setState({
             name: '',
             category: '',

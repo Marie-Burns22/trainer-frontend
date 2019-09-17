@@ -20,6 +20,9 @@ const NavBar = ({currentClient}) => {
                 color: white;
             }
         }
+        .active {
+            color: rgb(167, 28, 167)
+        }
     `;
 
     return (
@@ -30,23 +33,23 @@ const NavBar = ({currentClient}) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
 
-                        <Nav.Item><Nav.Link as={NavLink} to="/">Home</Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link as={NavLink} exact to="/">Home</Nav.Link></Nav.Item>
 
                         {currentClient ?
                         <React.Fragment>
                             <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
                             <NavDropdown title="Bookings" id="basic-nav-dropdown">
-                                <Nav.Item> <NavDropdown.Item as={NavLink} to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
+                                <Nav.Item> <NavDropdown.Item as={NavLink} exact to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
                                 {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
                                 {/* {/* <NavDropdown.Divider /> */}
-                                <Nav.Item><NavDropdown.Item as={NavLink} to="/bookings/new">New Booking</NavDropdown.Item></Nav.Item>
+                                <Nav.Item><NavDropdown.Item as={NavLink} exact to="/bookings/new">New Booking</NavDropdown.Item></Nav.Item>
                                 {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */} 
                             </NavDropdown>
                         </React.Fragment>
                         :
                         <React.Fragment>
-                            <Nav.Item><Nav.Link as={NavLink} to="/login">Login</Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link as={NavLink} exact to="/login">Login</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link as={NavLink} exact to="/signup">Sign Up</Nav.Link></Nav.Item>
                         </React.Fragment>    
                         }
 

@@ -1,7 +1,7 @@
 import React from 'react';
-// import './App.css';
+import './App.css';
 
-import { Route, withRouter, Switch } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import {getCurrentClient} from './actions/currentClientAction'
@@ -50,11 +50,11 @@ class App extends React.Component {
             <Route exact path='/bookings' render={routerprops => <BookingsContainer {...routerprops} bookings={this.props.bookings} />} />
             <Route exact path='/bookings/new' component={BookingForm} />
           
-          <Switch>
-            <Route path='/services' render={routerprops => <Services {...routerprops} services={this.props.services} />} />
+
+            <Route path='/services' render={routerprops => <Services {...routerprops} services={this.props.services} />}  />
             <Route exact path='/services/new' component={ServiceForm} />
-            <Route exact path="/services/:name" render={(rprops) =>  <Service {...rprops} service={this.findService(rprops.match.params.name)} /> } />
-          </Switch>
+            <Route path="/services/:name" render={(rprops) =>  <Service {...rprops} service={this.findService(rprops.match.params.name)} /> } />
+
         </Layout>
       </div>
     );
