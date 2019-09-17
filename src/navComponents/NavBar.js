@@ -5,11 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav';
 import styled from 'styled-components';
-// import Form from 'react-bootstrap/Form';
-// import FormControl from 'react-bootstrap/FormControl';
-// import Button from 'react-bootstrap/Button'
-
-
+import { logout } from '../actions/currentClientAction';
 
 const NavBar = ({currentClient}) => {
     const Styles = styled.div`
@@ -34,26 +30,26 @@ const NavBar = ({currentClient}) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
 
-                        <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
+                        <Nav.Item><Nav.Link as={NavLink} to="/">Home</Nav.Link></Nav.Item>
 
                         {currentClient ?
                         <React.Fragment>
                             <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
+                            <NavDropdown title="Bookings" id="basic-nav-dropdown">
+                                <Nav.Item> <NavDropdown.Item as={NavLink} to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
+                                {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+                                {/* {/* <NavDropdown.Divider /> */}
+                                <Nav.Item><NavDropdown.Item as={NavLink} to="/bookings/new">New Booking</NavDropdown.Item></Nav.Item>
+                                {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */} 
+                            </NavDropdown>
                         </React.Fragment>
                         :
                         <React.Fragment>
-                            <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link href="/signup">Sign Up</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link as={NavLink} to="/login">Login</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link></Nav.Item>
                         </React.Fragment>    
                         }
 
-                        <NavDropdown title="Bookings" id="basic-nav-dropdown">
-                            <Nav.Item> <NavDropdown.Item as={NavLink} to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
-                            {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
-                            {/* {/* <NavDropdown.Divider /> */}
-                            <Nav.Item><NavDropdown.Item as={NavLink} to="/bookings/new">New Booking</NavDropdown.Item></Nav.Item>
-                            {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */} 
-                        </NavDropdown>
 
                         <NavDropdown title="Services" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/services">All Services</NavDropdown.Item>
@@ -78,7 +74,7 @@ const mapStateToProps = ({ currentClient }) => {
         currentClient
     }
 }
-export default connect(mapStateToProps)(NavBar)
+export default connect(mapStateToProps, {logout})(NavBar)
 
 // Link to home
 // Link to contact page

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 const Services = (props) => {
     return(
-        <div>
+        <div id="Service-list">
             <h2>Available Services</h2>
             {props.services.map(service => 
             <li key={service.id}> 
