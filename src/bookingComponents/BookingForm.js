@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux"
 import {addBooking} from "../actions/bookingActions"
+import { Form, Button} from 'react-bootstrap'
+
 
 
 class BookingForm extends React.Component {
@@ -28,41 +30,40 @@ class BookingForm extends React.Component {
         })
     }
     render() {
-        console.log("The props in bookingform are:", this.props)
         return (
-            <div className="Form">
+            <Form onSubmit={this.handleSubmit}>
                 <h3>New Booking Form</h3>
-                <form onSubmit={this.handleSubmit}>
-                    
-                    <label>Day</label>
-                    <select name='day' placeholder="day" value={this.state.day} onChange={this.handleChange}>
+                
+                <Form.Group controlId="bookingForm.daySelect">
+                    <Form.Label>Day</Form.Label>
+                    <Form.Control as="select" name='day' placeholder="day" value={this.state.day} onChange={this.handleChange}>
                         <option>Monday</option>
                         <option>Tuesday</option>
                         <option>Wednesday</option>
                         <option>Thusday</option>
                         <option>Friday</option>
-                    </select>
-                    
-                    <label>Time</label>
-                    <select name='time' placeholder="time" value={this.state.time} onChange={this.handleChange}>
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="bookingForm.timeSelect">
+                    <Form.Label>Time</Form.Label>
+                    <Form.Control as="select" name='time' placeholder="time" value={this.state.time} onChange={this.handleChange}>
                         <option>10:00</option>
                         <option>13:00</option>
-                    </select>
-                    
-                    {/* TODO: service options mapped from an array of services */}
-                    <label>Service</label>
+                    </Form.Control>
+                </Form.Group>
+                
+                <Form.Group controlId="bookingForm.serviceSelect">
+                    <Form.Label>Service</Form.Label>
+                    <Form.Control as="select" name='serviceId' placeholder="service" value={this.state.serviceId} onChange={this.handleChange} >
+                        {this.props.services.map(service => <option value={service.id}>{service.attributes.name}</option>)}
+                    </Form.Control>
+                </Form.Group>
 
-
-                    <select name='serviceId' placeholder="service" value={this.state.serviceId} onChange={this.handleChange}>
-                    {this.props.services.map(service => <option value={service.id}>{service.attributes.name}</option>)}
-                        {/* <option>1</option>
-                        <option>2</option>
-                        <option>3</option> */}
-                    </select>
-                    
-                    <input type='submit' placeholder="Book" />
-                </form>
-            </div>
+                <Button variant="primary" type="submit">
+                    Book it!
+                </Button>
+            </Form>
         )
     }
 }
