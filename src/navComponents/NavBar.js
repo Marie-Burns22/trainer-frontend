@@ -10,7 +10,8 @@ import { logout } from '../actions/currentClientAction';
 const NavBar = ({currentClient}) => {
     const Styles = styled.div`
         .navbar {
-            background-color: #323;
+            background-color: #6166cb;
+            // background-color: #5c67ce;
         }
 
         .navbar-brand, .navbar-nav .nav-link {

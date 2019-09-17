@@ -24,7 +24,7 @@ class BookingForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addBooking(this.state, this.props.clientId, this.props.history)
+        this.props.addBooking(this.state, this.props.currentClient.id, this.props.history)
         this.setState({
             day: 'Monday',
             time: '11:00',
@@ -72,7 +72,7 @@ class BookingForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        clientId: state.currentClient.id,
+        client: state.currentClient,
         services: state.services
     }
 }
