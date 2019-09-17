@@ -10,7 +10,7 @@ const PhotoHeading = () => {
             background: url(${polecon1}) no-repeat fixed bottom;
             background-size: cover;
             color: #efefef;
-            height: 200px;
+            height: 250px;
             position: relative;
             z-index: -2;
         }
