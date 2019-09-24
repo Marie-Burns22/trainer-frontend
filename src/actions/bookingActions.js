@@ -62,7 +62,8 @@ export const addBooking = (booking, clientId, history) => {
             body: JSON.stringify(bookingData)
         })
         .then(response => response.json())
-        .then(bookings => dispatch(setBookings(bookings.data)))
+        .then(bookings => {
+            dispatch(setBookings(bookings.data))})
         history.push('/bookings')
     }
 }

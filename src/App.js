@@ -14,7 +14,7 @@ import { Layout } from './navComponents/Layout'
 
 import LoginForm from './clientComponents/LoginForm';
 import SignUpForm from './clientComponents/SignUpForm';
-import Logout from './clientComponents/Logout';
+// import Logout from './clientComponents/Logout';
 
 import BookingsContainer from './containers/BookingsContainer'
 import BookingForm from './bookingComponents/BookingForm'
@@ -45,7 +45,7 @@ class App extends React.Component {
 
             <Route exact path='/login' component={LoginForm}/>
             <Route exact path='/signup' component={SignUpForm}/>
-            <Route exact path='/logout' component={Logout}/>
+            {/* <Route exact path='/logout' component={Logout}/> */}
             
             <Route exact path='/bookings' render={routerprops => <BookingsContainer {...routerprops} currentClient={this.props.currentClient} />} />
             <Route exact path='/bookings/new' render={routerprops => <BookingForm {...routerprops} currentClient={this.props.currentClient} />} />

@@ -1,5 +1,4 @@
 import { resetLoginForm } from './loginFormActions'
-import { fetchBookings } from './bookingActions'
 
 // synchronous action creators
 export const setCurrentClient = client => {
@@ -43,6 +42,7 @@ export const login = (credentials, history) => {
 }
 
 export const logout = (history) => {
+
     return dispatch => {
         dispatch(clearCurrentClient())
         history.push('/')
@@ -50,18 +50,19 @@ export const logout = (history) => {
             credentials: "include",
             method: "DELETE"
         })
+
     }
 }
 
 export const getCurrentClient = () => {
-    return (dispatch) => {
+    return dispatch => {
         return fetch("http://localhost:3000/api/v1/get_current_client", {
             credentials: "include",
+            method: 'GET',
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
             },
-            method: 'GET',
         })
             .then(r => r.json())
             .then(response => {
@@ -69,7 +70,7 @@ export const getCurrentClient = () => {
                     alert(response.error)
                 } else {
                     dispatch(setCurrentClient(response.data))
-                    // dispatch(fetchBookings())
+
                 }
             })
             .catch(console.log)

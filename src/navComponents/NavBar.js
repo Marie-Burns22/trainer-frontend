@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import {NavLink, withRouter} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav';
 import styled from 'styled-components';
 import { logout } from '../actions/currentClientAction';
 
-const NavBar = ({currentClient}) => {
+const NavBar = ({currentClient, logout, history}) => {
     const Styles = styled.div`
         .navbar {
             background-color: #6166cb;
@@ -38,7 +38,8 @@ const NavBar = ({currentClient}) => {
 
                         {currentClient ?
                         <React.Fragment>
-                            <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link onClick={() => logout(history)}>Logout</Nav.Link></Nav.Item>
+                            {/* <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item> */}
                             <NavDropdown title="Bookings" id="basic-nav-dropdown">
                                 <Nav.Item> <NavDropdown.Item as={NavLink} exact to="/bookings">All My Bookings</NavDropdown.Item></Nav.Item>
                                 {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
@@ -78,7 +79,5 @@ const mapStateToProps = ({ currentClient }) => {
         currentClient
     }
 }
-export default connect(mapStateToProps, {logout})(NavBar)
+export default connect(mapStateToProps, {logout})(withRouter(NavBar))
 
-// Link to home
-// Link to contact page

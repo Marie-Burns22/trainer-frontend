@@ -12,7 +12,7 @@ const Bookings = (props) => {
         {props.bookings.length > 0 && props.client ?   
         <React.Fragment>
             <h3>Bookings for {props.client.attributes.name}</h3>
-            {props.bookings.map(booking =>  <Booking booking={booking}/>)}
+            {props.bookings.map(booking =>  <Booking key={booking.id} booking={booking}/>)}
         </React.Fragment> 
         : 
         <React.Fragment>
