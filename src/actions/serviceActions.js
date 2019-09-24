@@ -9,7 +9,7 @@ export const setServices = services => {
 // async actions
 export const fetchServices = () => {
     return dispatch => {
-        fetch("http://localhost:3000/api/v1/services", {
+        fetch("http://vimp.herokuapp.com/api/v1/services", {
             credentials: 'include',
             method: 'GET',
             headers: {
@@ -29,7 +29,7 @@ export const fetchServices = () => {
 
 export const addService = (data, history) => {
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/services", {
+        fetch("http://vimp.herokuapp.com/api/v1/services", {
             credentials: 'include',    
             method: 'POST',
             headers: {
@@ -46,7 +46,7 @@ export const addService = (data, history) => {
 
 export const deleteService = (serviceId, history) => {
     return dispatch => {
-        fetch(`http://localhost:3000/api/v1/services/${serviceId}`, {
+        fetch(`http://vimp.herokuapp.com/api/v1/services/${serviceId}`, {
             credentials: "include",
             method: 'DELETE',
             headers: {

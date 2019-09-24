@@ -18,7 +18,7 @@ export const clearCurrentClient = () => {
 export const login = (credentials, history) => {
 
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/login", {
+        return fetch("http://vimp.herokuapp.com/api/v1/login", {
             credentials: "include",    
             method: 'POST',
             headers: {
@@ -46,7 +46,7 @@ export const logout = (history) => {
     return dispatch => {
         dispatch(clearCurrentClient())
         history.push('/')
-        return fetch('http://localhost:3000/api/v1/logout', {
+        return fetch('http://vimp.herokuapp.com/api/v1/logout', {
             credentials: "include",
             method: "DELETE"
         })
@@ -56,7 +56,7 @@ export const logout = (history) => {
 
 export const getCurrentClient = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/get_current_client", {
+        return fetch("http://vimp.herokuapp.com/api/v1/get_current_client", {
             credentials: "include",
             method: 'GET',
             headers: {

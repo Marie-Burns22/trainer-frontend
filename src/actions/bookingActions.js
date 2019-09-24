@@ -9,7 +9,7 @@ export const setBookings = bookings => {
 // async actions
 export const deleteBooking = (clientId, bookingId) => {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings/${bookingId}`, {
+        fetch(`http://vimp.herokuapp.com/api/v1/clients/${clientId}/bookings/${bookingId}`, {
             credentials: 'include',
             method: 'DELETE',
             headers: {
@@ -24,7 +24,7 @@ export const deleteBooking = (clientId, bookingId) => {
 // The clientId is currently being passed undefined. This fetch request still works because the backend uses its own current_client and logged_in? methods to get the bookings for a specific client.  Also, the routes are nested so the route expects something in the url between clients and bookings and undefined works as would a number.  If you remove clientId from this api url, you will need to change the route in the backend.
 export const fetchBookings = clientId => {
     return dispatch => {
-        fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
+        fetch(`http://vimp.herokuapp.com/api/v1/clients/${clientId}/bookings`, {
             credentials: "include",
             method: 'GET',
             headers: {
@@ -52,7 +52,7 @@ export const addBooking = (booking, clientId, history) => {
                 client_id: clientId,
             }
         }
-        fetch(`http://localhost:3000/api/v1/clients/${clientId}/bookings`, {
+        fetch(`http://vimp.herokuapp.com/api/v1/clients/${clientId}/bookings`, {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
