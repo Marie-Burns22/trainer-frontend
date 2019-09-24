@@ -21,7 +21,7 @@ export const signUp = (credentials, history) => {
             client: credentials
         }
         console.log(credentials)
-        return fetch("http://vimp.herokuapp.com/api/v1/signup", {
+        return fetch("https://vimp.herokuapp.com/api/v1/signup", {
             credentials: "include",
             method: "POST",
             headers: {
